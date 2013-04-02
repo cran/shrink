@@ -1,0 +1,2 @@
+#### export of public functions:
+export(shrink, predict.shrink, print.shrink, coef.shrink)
