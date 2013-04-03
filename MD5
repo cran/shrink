@@ -1,0 +1,13 @@
+064e31d6888df72db834b4223d33ffb9 *DESCRIPTION
+8a5d2fd25ba6b9bf3e78242e0d713171 *NAMESPACE
+2ee6ec2476996b45498f93c161f524a6 *R/coef.shrink.r
+afd2d50aedab7af274dd113e530ec931 *R/predict.shrink.r
+4d8709ac84cb605a1a80a755ee4bb627 *R/print.shrink.r
+ab21c3897a4dd0ef92629196ca06fa26 *R/shrink.r
+0c4a4cd7818b3d677f31ac7d96b3fb05 *inst/CITATION
+42f7b095eeaff7885054010536b94cd2 *man/coef.shrink.Rd
+4424707d1cdeaf3a7926f166284c4c2d *man/predict.shrink.Rd
+c349f512606f52e570f47c4a9ac2bcf4 *man/print.shrink.Rd
+d5b268f0072a7ff5e0879ec78910ae7e *man/shrink-package.Rd
+9a45252f0f1e5ac304f0355f44c755ad *man/shrink.Rd
+6eb7f7c5cf632c0d2695267511dc70ad *test/example.r

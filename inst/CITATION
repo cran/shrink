@@ -1,0 +1,17 @@
+citHeader("To cite package 'shrink' in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "shrink: Global, Parameterwise, and Joint Shrinkage of Regression Coefficients",
+         author = personList(as.person("Daniela Dunkler"),
+                             as.person("Georg Heinze")),
+         year = year,
+         note = vers,
+
+         textVersion =
+         paste("Daniela Dunkler, Georg Heinze (",
+               year,
+               "). shrink: Global, Parameterwise, and Joint Shrinkage of Regression Coefficients. ",
+               vers, ".", sep=""))
