@@ -4,7 +4,7 @@ year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 
 citEntry(entry="Manual",
-         title = "shrink: Global, Parameterwise, and Joint Shrinkage of Regression Coefficients",
+         title = "shrink: Global, Parameterwise, and Joint Post-Estimation Shrinkage",
          author = personList(as.person("Daniela Dunkler"),
                              as.person("Georg Heinze")),
          year = year,
@@ -13,5 +13,5 @@ citEntry(entry="Manual",
          textVersion =
          paste("Daniela Dunkler, Georg Heinze (",
                year,
-               "). shrink: Global, Parameterwise, and Joint Shrinkage of Regression Coefficients. ",
+               "). shrink: Global, Parameterwise, and Joint Post-Estimation Shrinkage. ",
                vers, ".", sep=""))
