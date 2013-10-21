@@ -1,3 +1,116 @@
+### tests
+library(shrink)
+library(rms)
+library(mfp)
+data(GBSG)
+
+# cox (univariate, multivariate)
+fit <- coxph(Surv(rfst, cens) ~ age, data = GBSG, x=TRUE)
+a<-shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age")))
+c<-shrink(fit, method = "jackknife", type = "parameterwise")
+d<-shrink(fit, method = "dfbeta", type = "global")
+e<-shrink(fit, method = "jackknife", type = "global")
+
+a
+c
+d
+e
+
+names(a)
+a$shrinkage
+a$vcov.shrinkage
+a$shrunken
+a$postfit
+a$fit
+a$type
+a$method
+a$call
+
+names(c)
+c$shrinkage
+c$vcov.shrinkage
+c$shrunken
+c$postfit
+c$fit
+c$type
+c$method
+c$call
+
+names(d)
+d$shrinkage
+d$vcov.shrinkage
+d$shrunken
+d$postfit
+d$fit
+d$type
+d$method
+d$call
+
+names(e)
+e$shrinkage
+e$vcov.shrinkage
+e$shrunken
+e$postfit
+e$fit
+e$type
+e$method
+e$call
+
+fit <- coxph(Surv(rfst, cens) ~ age + prm, data = GBSG, x=TRUE)
+shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age", "prm")))
+shrink(fit, method = "jackknife", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "global")
+shrink(fit, method = "jackknife", type = "global")
+
+# cox (univariate, multivariate, rcs)
+fit <- coxph(Surv(rfst, cens) ~ rcs(age), data = GBSG, x=TRUE)
+shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("rcs1.age", "rcs2.age", "rcs3.age", "rcs4.age")))
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age")))
+shrink(fit, method = "jackknife", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "global")
+shrink(fit, method = "jackknife", type = "global")
+
+fit <- coxph(Surv(rfst, cens) ~ rcs(age) + rcs(prm), data = GBSG, x=TRUE)
+shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age"), c("prm")))
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age", "prm")))
+shrink(fit, method = "jackknife", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "global")
+shrink(fit, method = "jackknife", type = "global")
+
+fit <- coxph(Surv(rfst, cens) ~ age + rcs(prm), data = GBSG, x=TRUE)
+shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("prm")))
+shrink(fit, method = "jackknife", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "global")
+shrink(fit, method = "jackknife", type = "global")
+
+# cox and mfp
+library(mfp)
+data(GBSG)
+fit <- mfp(Surv(rfst, cens) ~ fp(age, df = 4, select = 0.05) +  fp(prm, df = 4, select = 0.05), family = cox, data = GBSG)    # + fp(esm, df = 4, select = 1)
+shrink(fit, method = "dfbeta", type = "parameterwise")
+shrink(fit, method = "dfbeta", type = "global")
+shrink(fit, method = "dfbeta", type = "parameterwise", join=list(c("age.1", "age.2", "prm.1")))
+
+# glm, binomial
+utils::data(Pima.te, package="MASS")      
+utils::data(Pima.tr, package="MASS")      
+Pima <- rbind(Pima.te, Pima.tr)
+nrow(Pima)
+fit <- glm(type ~ npreg + glu + rcs(bmi) + ped + age, family = binomial, data = Pima, x = TRUE) 
+shrink(fit, method="dfbeta", type="global")
+shrink(fit, method="dfbeta", type="parameterwise")
+shrink(fit, method="dfbeta", type="parameterwise", join=list(c("npreg", "glu"), c("bmi")))        
+shrink(fit, method="dfbeta", type="parameterwise", join=list(c("npreg", "glu", "bmi")))           # does not work
+shrink(fit, method="dfbeta", type="parameterwise", join=list(c("npreg", "glu", "rcs1.bmi" ,   "rcs2.bmi",    "rcs3.bmi"  ,  "rcs4.bmi")))           # use instead
+shrink(fit, method="dfbeta", type="parameterwise", join=list(c("npreg", "glu", "ped","age")))
+
+
+################################################################################
 # further examples
 fit1a <- coxph(Surv(rfst, cens) ~ age + prm, data = GBSG, x=TRUE)
 shrink(fit1a, method = "dfbeta", type = "parameterwise")

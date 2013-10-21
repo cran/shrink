@@ -4,8 +4,11 @@
 
 \title{ Print Method for Objects of Class \code{shrink} }
 
-\description{ This class of objects is returned by the \code{shrink} function. Objects of this class have methods for the 
-functions \code{print}, \code{predict}, and \code{coeff}. }
+\description{ 
+  This class of objects is returned by the \code{shrink} function. 
+  Objects of this class have methods for the functions \code{print}, \code{predict},
+  and \code{coeff}. 
+}
 
 \usage{
 \method{print}{shrink}(x, ...) 
@@ -26,7 +29,7 @@ functions \code{print}, \code{predict}, and \code{coeff}. }
 
 %%\note{  }
 
-\seealso{ \code{\link{shrink}}, \code{\link{predict.shrink}}, \code{\link{coef.shrink}} }
+\seealso{ \code{\link{shrink}}, \code{\link{coef.shrink}} }
 
 %%\examples{ }
 

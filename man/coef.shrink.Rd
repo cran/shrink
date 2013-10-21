@@ -4,7 +4,9 @@
 
 \title{ Returns Shrunken Regression Coefficients from Objects of Class \code{shrink} }
 
-\description{ This class of objects is returned by the \code{shrink} function. Objects of this class have methods for the functions \code{print}, \code{predict}, and \code{coeff}. }
+\description{ This class of objects is returned by the \code{shrink} function. 
+Objects of this class have methods for the functions \code{coeff}, \code{predict}, 
+and \code{print}. }
 
 \usage{                 
 \method{coef}{shrink}(object, ...) 
@@ -25,7 +27,7 @@
 
 %%\note{  }
 
-\seealso{ \code{\link{shrink}}, \code{\link{print.shrink}}, \code{\link{predict.shrink}} }
+\seealso{ \code{\link{shrink}}, \code{\link{print.shrink}} }
 
 %%\examples{ }
 

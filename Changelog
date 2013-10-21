@@ -1,0 +1,6 @@
+21.10.2013  1.1.0 new port, R.3.0.2
+08.10.2013  1.0.4 postfit for jackknife, rcs now works for coxph, R.3.0.2
+07.10.2013  1.0.3 include deepvein data
+25.09.2013  1.0.2 changes in Manual and default settings of shrink, R.3.0.1
+17.04.2013	1.0.1	now works with rcs argument from the rms library, R.3.0.0
+02.04.2013	1.0.0	original port, R.2.15.3

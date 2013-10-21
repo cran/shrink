@@ -7,17 +7,16 @@ function(object, newdata = NULL, type = c("link", "response", "lp", "risk", "exp
   # class coxph = c("lp", "risk", "expected", "terms")
   # class lm = c("response", "terms")
     
-  if (class(object)!="shrink") { stop("object is not of class shrink") }
+  if (class(object) != "shrink") { stop("object is not of class shrink") }
 
-  if (sum(class(object$fit) %in% "mfp")==1) { fit <- object$fit$fit } else
-  if (sum(class(object$fit) %in% "mfp")==0) { fit <- object$fit }         
+  if (sum(class(object$fit) %in% "mfp") == 1) { fit <- object$fit$fit } else
+  if (sum(class(object$fit) %in% "mfp") == 0) { fit <- object$fit }         
 
   fit$coefficients <- object$shrunken
 
-  if (sum(class(object$fit) %in% "mfp")==1) {                                   # code from mfp:predict.mfp Version 1.4.9 (Nov. 2012)
-#    type <- match.arg(type)
-    
-    if (object$fit$family$family=="Cox") {
+  # code from mfp:predict.mfp Version 1.4.9 (Nov. 2012)
+  if (sum(class(object$fit) %in% "mfp") == 1) { 
+    if (object$fit$family$family == "Cox") {
         if (is.null(object$fit$terms)) terms = names(object$fit$assign)
     	if (!missing(newdata)) 
     		if (!missing(collapse)) 
@@ -36,15 +35,15 @@ function(object, newdata = NULL, type = c("link", "response", "lp", "risk", "exp
     		predict.glm(fit, type = type, se.fit = FALSE, dispersion = NULL, terms = terms, na.action = na.action, ...)
     }
   } else
-  if (sum(class(object$fit) %in% "mfp")==0) {
-    if (sum(class(object$fit) %in% c("glm", "lm"))>=1) {
+  if (sum(class(object$fit) %in% "mfp") == 0) {
+    if (sum(class(object$fit) %in% c("glm", "lm")) >= 1) {
     	if (!missing(newdata)) { 
         predict.glm(fit, newdata = newdata, type = type, se.fit = FALSE, dispersion = NULL, terms = terms, na.action = na.action, ...)
       } else {
         predict.glm(fit, type = type, se.fit = FALSE, dispersion = NULL, terms = terms, na.action = na.action, ...)
       }
     } else
-    if (sum(class(object$fit) %in% "coxph")==1) {
+    if (sum(class(object$fit) %in% "coxph") == 1) {
       if (!is.null(terms)) { terms <- names(fit$assign) }
       if (is.null(newdata)) { newdata <- data.frame(fit$x) }      
       predict(fit, newdata = newdata, type = type, se.fit = FALSE, na.action = na.action, terms = terms, collapse,  ...)
