@@ -1,6 +1,25 @@
-21.10.2013  1.1.0 new port, R.3.0.2
+02.10.2014  1.2.0 new port, R.3.1.1
+                  mfp is not longer on cran, examples changed
+
+25.09.2014  1.1.5 include GBSG data set
+                  change DESCRIPTION: Imports instead of Suggests & changes in NAMESPACE 
+16.07.2014  1.1.4 changes based on JSS resubmission: 
+                    shrink completely revised:
+                      works for all glm families
+                      new call for rcs()
+                      obtain all types of shrinkage in one call
+                      etc.
+                    also works for variables transformed within formula
+                    new functions: vcov, summary
+29.01.2014  1.1.3 changes in NAMESPACE for S3 methods
+27.11.2013  1.1.2 change reference category in loc in deepvein, adapt shrink for 
+                  mfp inconsistency when y is a factor and problem with dfbeta
+22.10.2013  1.1.1 small changes in print, prepare for JSS submission
+
+21.10.2013  1.1.0 new port, R.3.0.2 => uploaded to cran
 08.10.2013  1.0.4 postfit for jackknife, rcs now works for coxph, R.3.0.2
 07.10.2013  1.0.3 include deepvein data
 25.09.2013  1.0.2 changes in Manual and default settings of shrink, R.3.0.1
 17.04.2013	1.0.1	now works with rcs argument from the rms library, R.3.0.0
+
 02.04.2013	1.0.0	original port, R.2.15.3

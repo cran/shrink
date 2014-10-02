@@ -1,6 +1,10 @@
 isrcs <- 
-function(x) 
+  function(fit) 
 { 
-  # is the rms:rcs argument used in the respective model? (T/F)
-  regexpr(pattern = "rcs", text = x) == TRUE 
+  # was the rms:rcs argument used in the fit?
+  # [[1]] rcs is included in formula (right-hand side), but not as a variable name
+  # [[2]] variables with rcs
+  
+  list(any(all.names(fit$call$formula[3]) == "rcs") && !any(all.vars(fit$call$formula[3]) == "rcs"),  
+       regexpr(pattern = "rcs(", fixed =TRUE, text = names(fit$coefficients)) == TRUE)
 }
