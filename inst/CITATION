@@ -1,17 +1,23 @@
-citHeader("To cite package 'shrink' in publications use:")
+bibentry(bibtype = "Article",
+  title        = "Global, Parameterwise and Joint Shrinkage Factor Estimation",
+  author       = c(person(given = "Daniela",
+                          family = "Dunkler"),
+                   person(given = "Willi",
+                          family = "Sauerbrei"),
+                   person(given = "Georg",
+                          family = "Heinze",
+                          email = "georg.heinze@meduniwien.ac.at")),
+  journal      = "Journal of Statistical Software",
+  year         = "2016",
+  volume       = "69",
+  number       = "8",
+  pages        = "1--19",
+  doi          = "10.18637/jss.v069.i08",
 
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
-vers <- paste("R package version", meta$Version)
-
-citEntry(entry="Manual",
-         title = "shrink: Global, Parameterwise, and Joint Post-Estimation Shrinkage",
-         author = personList(as.person("Daniela Dunkler"),
-                             as.person("Georg Heinze")),
-         year = year,
-         note = vers,
-
-         textVersion =
-         paste("Daniela Dunkler, Georg Heinze (",
-               year,
-               "). shrink: Global, Parameterwise, and Joint Post-Estimation Shrinkage. ",
-               vers, ".", sep=""))
+  header       = "To cite shrink in publications use:",
+  textVersion  =
+  paste("Daniela Dunkler, Willi Sauerbrei, Georg Heinze (2016).",
+        "Global, Parameterwise and Joint Shrinkage Factor Estimation.",
+        "Journal of Statistical Software, 69(8), 1-19.",
+        "doi:10.18637/jss.v069.i08")
+)

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Daniela Dunkler" />
+
+<meta name="date" content="2016-03-09" />
+
+<title>JSS Example Code</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0A%7D%0Apre%20%7B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">JSS Example Code</h1>
+<h4 class="author"><em>Daniela Dunkler</em></h4>
+<h4 class="date"><em>2016-03-09</em></h4>
+</div>
+
+
+<p>This is the example code for Dunkler D, Sauerbrei W, Heinze G (2016). Global, Parameterwise and Joint Shrinkage Factor Estimation. <em>Journal of Statistical Software</em>. <strong>69</strong>(8), 1-19. <a href="http://dx.doi.org/10.18637/jss.v069.i08" class="uri">http://dx.doi.org/10.18637/jss.v069.i08</a>.</p>
+<div id="example-r-code" class="section level2">
+<h2>Example R Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">################################################################################
+### R code for
+### &quot;Global, Parameterwise and Joint Shrinkage Factor Estimation&quot;
+### written by Daniela Dunkler, March 2016
+################################################################################
+
+## works with R 3.2.3 &amp; shrink-package 1.2.1
+
+## load the packages
+<span class="kw">library</span>(<span class="st">&quot;shrink&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;survival&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;mfp&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;aod&quot;</span>)                                                  <span class="co"># for wald-test</span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'aod'</code></pre>
+<pre><code>## The following object is masked from 'package:survival':
+## 
+##     rats</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>## R version 3.2.3 (2015-12-10)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
+## 
+## locale:
+## [1] LC_COLLATE=English_Canada.1252  LC_CTYPE=English_Canada.1252   
+## [3] LC_MONETARY=English_Canada.1252 LC_NUMERIC=C                   
+## [5] LC_TIME=English_Canada.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] aod_1.3         mfp_1.5.2       survival_2.38-3 knitr_1.12.3   
+## [5] shrink_1.2.1   
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.2         formatR_1.3         RColorBrewer_1.1-2 
+##  [4] plyr_1.8.3          tools_3.2.3         rpart_4.1-10       
+##  [7] digest_0.6.9        evaluate_0.8.3      memoise_0.2.1      
+## [10] polspline_1.1.12    nlme_3.1-125        gtable_0.2.0       
+## [13] lattice_0.20-33     Matrix_1.2-3        yaml_2.1.13        
+## [16] SparseM_1.7         mvtnorm_1.0-5       gridExtra_2.2.1    
+## [19] stringr_1.0.0       cluster_2.0.3       MatrixModels_0.4-1 
+## [22] devtools_1.10.0     grid_3.2.3          nnet_7.3-11        
+## [25] foreign_0.8-66      rmarkdown_0.9       multcomp_1.4-4     
+## [28] latticeExtra_0.6-28 TH.data_1.0-7       Formula_1.2-1      
+## [31] magrittr_1.5        ggplot2_2.1.0       Hmisc_3.17-2       
+## [34] scales_0.4.0        codetools_0.2-14    htmltools_0.2.6    
+## [37] rms_4.4-2           MASS_7.3-45         splines_3.2.3      
+## [40] colorspace_1.2-6    quantreg_5.21       sandwich_2.3-4     
+## [43] stringi_1.0-1       acepack_1.3-3.3     munsell_0.4.3      
+## [46] zoo_1.7-12</code></pre>
+</div>
+<div id="section-2.1-deep-vein-thrombosis-study" class="section level2">
+<h2>Section 2.1: Deep Vein Thrombosis Study</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Section 2.1: Deep Vein Thrombosis Study
+## load data
+<span class="kw">data</span>(<span class="st">&quot;deepvein&quot;</span>)
+
+<span class="co"># number of observations, events, median observation time, and names of</span>
+<span class="co"># variables</span>
+<span class="kw">nrow</span>(deepvein)</code></pre></div>
+<pre><code>## [1] 929</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">deepvein$status2 &lt;-<span class="st"> </span><span class="kw">abs</span>(deepvein$status<span class="dv">-1</span>)
+<span class="kw">survfit</span>(<span class="kw">Surv</span>(time, status2) ~<span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> deepvein)</code></pre></div>
+<pre><code>## Call: survfit(formula = Surv(time, status2) ~ 1, data = deepvein)
+## 
+##       n  events  median 0.95LCL 0.95UCL 
+##   929.0   782.0    37.8    35.6    41.7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(deepvein$status)</code></pre></div>
+<pre><code>## 
+##   0   1 
+## 782 147</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">100</span>*<span class="kw">table</span>(deepvein$status)/<span class="kw">nrow</span>(deepvein), <span class="dv">2</span>)</code></pre></div>
+<pre><code>## 
+##     0     1 
+## 84.18 15.82</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">names</span>(deepvein))</code></pre></div>
+<pre><code>##  [1] &quot;age&quot;      &quot;bmi&quot;      &quot;durther&quot;  &quot;fiimut&quot;   &quot;fvleid&quot;   &quot;loc&quot;     
+##  [7] &quot;log2ddim&quot; &quot;pnr&quot;      &quot;sex&quot;      &quot;status&quot;   &quot;status2&quot;  &quot;time&quot;</code></pre>
+</div>
+<div id="section-2.2-breast-cancer-study" class="section level2">
+<h2>Section 2.2: Breast Cancer Study</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Section 2.2: Breast Cancer Study
+## load data
+<span class="kw">data</span>(<span class="st">&quot;GBSG&quot;</span>)
+
+
+<span class="co"># number of observations, events, median observation time, and names of</span>
+<span class="co"># variables</span>
+<span class="kw">nrow</span>(GBSG)</code></pre></div>
+<pre><code>## [1] 686</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(GBSG$cens)</code></pre></div>
+<pre><code>## 
+##   0   1 
+## 387 299</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">100</span>*<span class="kw">table</span>(GBSG$cens)/<span class="kw">nrow</span>(GBSG), <span class="dv">2</span>)</code></pre></div>
+<pre><code>## 
+##     0     1 
+## 56.41 43.59</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">GBSG$cens2 &lt;-<span class="st"> </span><span class="kw">abs</span>(GBSG$cens<span class="dv">-1</span>)
+<span class="co"># median observation time is given in days here</span>
+<span class="kw">survfit</span>(<span class="kw">Surv</span>(rfst, cens2) ~<span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> GBSG)</code></pre></div>
+<pre><code>## Call: survfit(formula = Surv(rfst, cens2) ~ 1, data = GBSG)
+## 
+##       n  events  median 0.95LCL 0.95UCL 
+##     686     387    1645    1570    1717</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># median observation time in months</span>
+<span class="dv">1645</span> /<span class="st"> </span><span class="fl">30.5</span></code></pre></div>
+<pre><code>## [1] 53.93443</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">names</span>(GBSG))</code></pre></div>
+<pre><code>##  [1] &quot;age&quot;      &quot;cens&quot;     &quot;cens2&quot;    &quot;esm&quot;      &quot;htreat&quot;   &quot;id&quot;      
+##  [7] &quot;menostat&quot; &quot;posnodal&quot; &quot;prm&quot;      &quot;rfst&quot;     &quot;tumgrad&quot;  &quot;tumsize&quot;</code></pre>
+</div>
+<div id="section-5.1-deep-vein-thrombosis-study" class="section level2">
+<h2>Section 5.1: Deep Vein Thrombosis Study</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Section 5.1: Deep Vein Thrombosis Study
+<span class="co"># set the reference level for all categorical variables</span>
+deepvein$sex &lt;-<span class="st"> </span><span class="kw">relevel</span>(deepvein$sex, <span class="dt">ref =</span> <span class="st">&quot;female&quot;</span>)
+deepvein$fiimut &lt;-<span class="st"> </span><span class="kw">relevel</span>(deepvein$fiimut, <span class="dt">ref =</span> <span class="st">&quot;absent&quot;</span>)
+deepvein$fvleid &lt;-<span class="st"> </span><span class="kw">relevel</span>(deepvein$fvleid, <span class="dt">ref =</span> <span class="st">&quot;absent&quot;</span>)
+deepvein$loc &lt;-<span class="st"> </span><span class="kw">relevel</span>(deepvein$loc, <span class="dt">ref =</span> <span class="st">&quot;PE&quot;</span>)
+<span class="co"># contrasts(deepvein$loc)</span>
+
+
+## fit full model, and compute shrinkage factors (jackknife estimates and dfbeta
+## approximations)
+fitfull &lt;-<span class="st"> </span><span class="kw">coxph</span>(<span class="kw">Surv</span>(time, status) ~<span class="st"> </span>log2ddim +<span class="st"> </span>bmi +<span class="st"> </span>durther +<span class="st"> </span>age +
+<span class="st">                 </span>sex +<span class="st"> </span>loc +<span class="st"> </span>fiimut +<span class="st"> </span>fvleid, <span class="dt">data =</span> deepvein, <span class="dt">x =</span> <span class="ot">TRUE</span>)
+<span class="kw">summary</span>(fitfull)</code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(time, status) ~ log2ddim + bmi + durther + 
+##     age + sex + loc + fiimut + fvleid, data = deepvein, x = TRUE)
+## 
+##   n= 929, number of events= 147 
+## 
+##                    coef exp(coef)  se(coef)      z Pr(&gt;|z|)   
+## log2ddim       0.219517  1.245475  0.085739  2.560  0.01046 * 
+## bmi            0.005865  1.005883  0.019051  0.308  0.75817   
+## durther        0.021881  1.022122  0.023681  0.924  0.35550   
+## age           -0.003973  0.996035  0.006583 -0.603  0.54622   
+## sexmale        0.495927  1.642019  0.189718  2.614  0.00895 **
+## locdistal     -0.905095  0.404504  0.311078 -2.910  0.00362 **
+## locproximal   -0.179351  0.835813  0.180336 -0.995  0.31996   
+## fiimutpresent -0.162573  0.849954  0.390499 -0.416  0.67718   
+## fvleidpresent -0.108886  0.896833  0.194228 -0.561  0.57506   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##               exp(coef) exp(-coef) lower .95 upper .95
+## log2ddim         1.2455     0.8029    1.0528    1.4734
+## bmi              1.0059     0.9942    0.9690    1.0442
+## durther          1.0221     0.9784    0.9758    1.0707
+## age              0.9960     1.0040    0.9833    1.0090
+## sexmale          1.6420     0.6090    1.1321    2.3816
+## locdistal        0.4045     2.4722    0.2199    0.7442
+## locproximal      0.8358     1.1964    0.5870    1.1902
+## fiimutpresent    0.8500     1.1765    0.3954    1.8272
+## fvleidpresent    0.8968     1.1150    0.6129    1.3123
+## 
+## Concordance= 0.61  (se = 0.026 )
+## Rsquare= 0.028   (max possible= 0.855 )
+## Likelihood ratio test= 26.2  on 9 df,   p=0.001894
+## Wald test            = 23.07  on 9 df,   p=0.006032
+## Score (logrank) test = 23.9  on 9 df,   p=0.004465</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## wald-test for categorical predictor &quot;loc&quot;
+<span class="kw">wald.test</span>(<span class="dt">Sigma =</span> <span class="kw">vcov</span>(fitfull)[<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),
+          <span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],
+          <span class="dt">b =</span> fitfull$coeff[<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="dt">Terms =</span> <span class="dv">1</span>:<span class="dv">2</span>)</code></pre></div>
+<pre><code>## Wald test:
+## ----------
+## 
+## Chi-squared test:
+## X2 = 8.6, df = 2, P(&gt; X2) = 0.014</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shrink</span>(fitfull, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)</code></pre></div>
+<pre><code>## Shrinkage Factors (type=global, method=jackknife):
+## [1] 0.6069174
+## 
+## Shrunken Regression Coefficients:
+##      log2ddim           bmi       durther           age       sexmale     locdistal 
+##   0.133228852   0.003559850   0.013279842  -0.002411042   0.300986429  -0.549317699 
+##   locproximal fiimutpresent fvleidpresent 
+##  -0.108851134  -0.098668180  -0.066084738</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## apply backward elimination to full model*, and compute shrinkage factors to
+## selected model
+## * dummy variables of loc are jointly tested and selected
+fitd &lt;-<span class="st"> </span><span class="kw">step</span>(fitfull, <span class="dt">direction =</span> <span class="st">&quot;backward&quot;</span>)</code></pre></div>
+<pre><code>## Start:  AIC=1784.06
+## Surv(time, status) ~ log2ddim + bmi + durther + age + sex + loc + 
+##     fiimut + fvleid
+## 
+##            Df    AIC
+## - bmi       1 1782.2
+## - fiimut    1 1782.2
+## - fvleid    1 1782.4
+## - age       1 1782.4
+## - durther   1 1782.9
+## &lt;none&gt;        1784.1
+## - log2ddim  1 1788.6
+## - sex       1 1789.2
+## - loc       2 1790.5
+## 
+## Step:  AIC=1782.15
+## Surv(time, status) ~ log2ddim + durther + age + sex + loc + fiimut + 
+##     fvleid
+## 
+##            Df    AIC
+## - fiimut    1 1780.3
+## - fvleid    1 1780.5
+## - age       1 1780.5
+## - durther   1 1781.0
+## &lt;none&gt;        1782.2
+## - log2ddim  1 1786.6
+## - sex       1 1787.2
+## - loc       2 1788.6
+## 
+## Step:  AIC=1780.34
+## Surv(time, status) ~ log2ddim + durther + age + sex + loc + fvleid
+## 
+##            Df    AIC
+## - fvleid    1 1778.7
+## - age       1 1778.7
+## - durther   1 1779.1
+## &lt;none&gt;        1780.3
+## - log2ddim  1 1784.9
+## - sex       1 1785.3
+## - loc       2 1786.7
+## 
+## Step:  AIC=1778.66
+## Surv(time, status) ~ log2ddim + durther + age + sex + loc
+## 
+##            Df    AIC
+## - age       1 1777.0
+## - durther   1 1777.4
+## &lt;none&gt;        1778.7
+## - log2ddim  1 1783.2
+## - sex       1 1783.4
+## - loc       2 1785.0
+## 
+## Step:  AIC=1777.01
+## Surv(time, status) ~ log2ddim + durther + sex + loc
+## 
+##            Df    AIC
+## - durther   1 1775.8
+## &lt;none&gt;        1777.0
+## - log2ddim  1 1781.5
+## - sex       1 1782.6
+## - loc       2 1783.3
+## 
+## Step:  AIC=1775.77
+## Surv(time, status) ~ log2ddim + sex + loc
+## 
+##            Df    AIC
+## &lt;none&gt;        1775.8
+## - log2ddim  1 1780.3
+## - sex       1 1781.2
+## - loc       2 1782.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(fitd)</code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(time, status) ~ log2ddim + sex + loc, data = deepvein, 
+##     x = TRUE)
+## 
+## 
+##                coef exp(coef) se(coef)     z      p
+## log2ddim     0.2188    1.2446   0.0854  2.56 0.0104
+## sexmale      0.4909    1.6338   0.1847  2.66 0.0079
+## locdistal   -0.9224    0.3976   0.3101 -2.97 0.0029
+## locproximal -0.2051    0.8146   0.1787 -1.15 0.2511
+## 
+## Likelihood ratio test=24.5  on 4 df, p=6.37e-05
+## n= 929, number of events= 147</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## wald-test for categorical predictor &quot;loc&quot;
+<span class="kw">wald.test</span>(<span class="dt">Sigma =</span> <span class="kw">vcov</span>(fitd)[<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),
+          <span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],
+          <span class="dt">b =</span> fitd$coeff[<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="dt">Terms =</span> <span class="dv">1</span>:<span class="dv">2</span>)</code></pre></div>
+<pre><code>## Wald test:
+## ----------
+## 
+## Chi-squared test:
+## X2 = 9.1, df = 2, P(&gt; X2) = 0.01</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)</code></pre></div>
+<pre><code>## Shrinkage Factors (type=global, method=jackknife):
+## [1] 0.8076362
+## 
+## Shrunken Regression Coefficients:
+##    log2ddim     sexmale   locdistal locproximal 
+##   0.1767045   0.3964779  -0.7449390  -0.1656066</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+pwsf</code></pre></div>
+<pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
+##    log2ddim     sexmale   locdistal locproximal 
+##   0.7321036   0.8351074   0.8393993   0.1321006 
+## 
+## Shrunken Regression Coefficients:
+##    log2ddim     sexmale   locdistal locproximal 
+##  0.16017851  0.40996379 -0.77423621 -0.02708736</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">diag</span>(pwsf$ShrinkageFactorsVCOV))</code></pre></div>
+<pre><code>##    log2ddim     sexmale   locdistal locproximal 
+##   0.3703055   0.3699730   0.3268146   0.8696058</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>,
+       <span class="dt">join =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))</code></pre></div>
+<pre><code>## Shrinkage Factors (type=parameterwise with join option, method=jackknife):
+##    log2ddim     sexmale   locdistal locproximal 
+##   0.7806284   0.8363976   0.8055175   0.8055175 
+## 
+## Shrunken Regression Coefficients:
+##    log2ddim     sexmale   locdistal locproximal 
+##   0.1707954   0.4105972  -0.7429847  -0.1651721</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## dummy variables of loc are separately tested and selected
+## generate dummy variables, fit full model and then apply backward elimination
+deepvein &lt;-<span class="st"> </span><span class="kw">cbind</span>(deepvein, <span class="kw">model.matrix</span>( ~<span class="st"> </span>loc, <span class="dt">data =</span> deepvein)[, -<span class="dv">1</span>])
+fitfull2 &lt;-<span class="st"> </span><span class="kw">coxph</span>(<span class="kw">Surv</span>(time, status) ~<span class="st"> </span>log2ddim +<span class="st"> </span>bmi +<span class="st"> </span>durther +<span class="st"> </span>age +
+<span class="st">                  </span>sex +<span class="st"> </span>locdistal +<span class="st"> </span>locproximal +<span class="st"> </span>fiimut +<span class="st"> </span>fvleid,
+                  <span class="dt">data =</span> deepvein, <span class="dt">x =</span> <span class="ot">TRUE</span>)  <span class="co"># fitfull2 is identical to fitfull</span>
+
+fitd2 &lt;-<span class="st"> </span><span class="kw">step</span>(fitfull2, <span class="dt">direction =</span> <span class="st">&quot;backward&quot;</span>)</code></pre></div>
+<pre><code>## Start:  AIC=1784.06
+## Surv(time, status) ~ log2ddim + bmi + durther + age + sex + locdistal + 
+##     locproximal + fiimut + fvleid
+## 
+##               Df    AIC
+## - bmi          1 1782.2
+## - fiimut       1 1782.2
+## - fvleid       1 1782.4
+## - age          1 1782.4
+## - durther      1 1782.9
+## - locproximal  1 1783.1
+## &lt;none&gt;           1784.1
+## - log2ddim     1 1788.6
+## - sex          1 1789.2
+## - locdistal    1 1792.5
+## 
+## Step:  AIC=1782.15
+## Surv(time, status) ~ log2ddim + durther + age + sex + locdistal + 
+##     locproximal + fiimut + fvleid
+## 
+##               Df    AIC
+## - fiimut       1 1780.3
+## - fvleid       1 1780.5
+## - age          1 1780.5
+## - durther      1 1781.0
+## - locproximal  1 1781.2
+## &lt;none&gt;           1782.2
+## - log2ddim     1 1786.6
+## - sex          1 1787.2
+## - locdistal    1 1790.6
+## 
+## Step:  AIC=1780.34
+## Surv(time, status) ~ log2ddim + durther + age + sex + locdistal + 
+##     locproximal + fvleid
+## 
+##               Df    AIC
+## - fvleid       1 1778.7
+## - age          1 1778.7
+## - durther      1 1779.1
+## - locproximal  1 1779.3
+## &lt;none&gt;           1780.3
+## - log2ddim     1 1784.9
+## - sex          1 1785.3
+## - locdistal    1 1788.7
+## 
+## Step:  AIC=1778.66
+## Surv(time, status) ~ log2ddim + durther + age + sex + locdistal + 
+##     locproximal
+## 
+##               Df    AIC
+## - age          1 1777.0
+## - durther      1 1777.4
+## - locproximal  1 1777.8
+## &lt;none&gt;           1778.7
+## - log2ddim     1 1783.2
+## - sex          1 1783.4
+## - locdistal    1 1787.0
+## 
+## Step:  AIC=1777.01
+## Surv(time, status) ~ log2ddim + durther + sex + locdistal + locproximal
+## 
+##               Df    AIC
+## - durther      1 1775.8
+## - locproximal  1 1776.2
+## &lt;none&gt;           1777.0
+## - log2ddim     1 1781.5
+## - sex          1 1782.6
+## - locdistal    1 1785.3
+## 
+## Step:  AIC=1775.77
+## Surv(time, status) ~ log2ddim + sex + locdistal + locproximal
+## 
+##               Df    AIC
+## - locproximal  1 1775.1
+## &lt;none&gt;           1775.8
+## - log2ddim     1 1780.3
+## - sex          1 1781.2
+## - locdistal    1 1784.8
+## 
+## Step:  AIC=1775.1
+## Surv(time, status) ~ log2ddim + sex + locdistal
+## 
+##             Df    AIC
+## &lt;none&gt;         1775.1
+## - log2ddim   1 1778.9
+## - sex        1 1780.7
+## - locdistal  1 1782.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fitd2)</code></pre></div>
+<pre><code>## Call:
+## coxph(formula = Surv(time, status) ~ log2ddim + sex + locdistal, 
+##     data = deepvein, x = TRUE)
+## 
+##   n= 929, number of events= 147 
+## 
+##               coef exp(coef) se(coef)      z Pr(&gt;|z|)   
+## log2ddim   0.20392   1.22621  0.08483  2.404   0.0162 * 
+## sexmale    0.49535   1.64107  0.18496  2.678   0.0074 **
+## locdistal -0.84053   0.43148  0.30277 -2.776   0.0055 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##           exp(coef) exp(-coef) lower .95 upper .95
+## log2ddim     1.2262     0.8155    1.0384    1.4480
+## sexmale      1.6411     0.6094    1.1421    2.3581
+## locdistal    0.4315     2.3176    0.2384    0.7811
+## 
+## Concordance= 0.602  (se = 0.026 )
+## Rsquare= 0.025   (max possible= 0.855 )
+## Likelihood ratio test= 23.16  on 3 df,   p=3.744e-05
+## Wald test            = 20.03  on 3 df,   p=0.0001673
+## Score (logrank) test = 20.85  on 3 df,   p=0.0001132</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shrink</span>(fitd2, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)</code></pre></div>
+<pre><code>## Shrinkage Factors (type=global, method=jackknife):
+## [1] 0.8439991
+## 
+## Shrunken Regression Coefficients:
+##   log2ddim    sexmale  locdistal 
+##  0.1721124  0.4180761 -0.7094099</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shrink</span>(fitd2, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)</code></pre></div>
+<pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
+##  log2ddim   sexmale locdistal 
+## 0.7700839 0.8317218 0.8975722 
+## 
+## Shrunken Regression Coefficients:
+##   log2ddim    sexmale  locdistal 
+##  0.1570393  0.4119946 -0.7544400</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Table 2
+t2_jack &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)$ShrinkageFactors,
+             pwsf$ShrinkageFactors,
+             <span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>,
+                    <span class="dt">join =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))$ShrinkageFactors,
+             <span class="kw">system.time</span>(<span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>))[<span class="dv">1</span>])
+
+t2_dfbeta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;dfbeta&quot;</span>)$ShrinkageFactors,
+               <span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;dfbeta&quot;</span>)$ShrinkageFactors,
+               <span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;dfbeta&quot;</span>,
+                      <span class="dt">join =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))$ShrinkageFactors,
+               <span class="kw">system.time</span>(<span class="kw">shrink</span>(fitd, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;dfbeta&quot;</span>))[<span class="dv">1</span>])
+
+t2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Jackknife =</span> t2_jack, <span class="dt">DFBETA =</span> t2_dfbeta)
+
+Table2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(t2, <span class="kw">round</span>((t2[, <span class="dv">2</span>] -<span class="st"> </span>t2[, <span class="dv">1</span>]) /<span class="st"> </span>t2[, <span class="dv">1</span>] *<span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>))
+Table2[, <span class="dv">1</span>:<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">round</span>(Table2[, <span class="dv">1</span>:<span class="dv">2</span>], <span class="dv">4</span>)
+<span class="kw">dimnames</span>(Table2)[[<span class="dv">2</span>]][<span class="dv">3</span>] &lt;-<span class="st"> &quot;Relative difference&quot;</span>
+Table2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(Table2[<span class="dv">1</span>,], <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">2</span>:<span class="dv">5</span>,], <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">6</span>:<span class="dv">8</span>,],
+                <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">10</span>,])
+<span class="kw">dimnames</span>(Table2)[[<span class="dv">1</span>]][<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">12</span>)] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Global shrinkage&quot;</span>,
+          <span class="st">&quot;Parameterwise shrinkage&quot;</span>, <span class="st">&quot;Joint shrinkage&quot;</span>, <span class="st">&quot;loc&quot;</span>, <span class="st">&quot;Computing time&quot;</span>)
+Table2</code></pre></div>
+<pre><code>##                         Jackknife DFBETA Relative difference
+## Global shrinkage           0.8076 0.8123                 0.6
+## Parameterwise shrinkage        NA     NA                  NA
+## log2ddim                   0.7321 0.7385                 0.9
+## sexmale                    0.8351 0.8373                 0.3
+## locdistal                  0.8394 0.8449                 0.7
+## locproximal                0.1321 0.1470                11.2
+## Joint shrinkage                NA     NA                  NA
+## log2ddim                   0.7806 0.7864                 0.7
+## sexmale                    0.8364 0.8386                 0.3
+## loc                        0.8055 0.8111                 0.7
+##                                NA     NA                  NA
+## Computing time             1.4800 0.0100               -99.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># max. difference</span>
+<span class="kw">max</span>(<span class="kw">abs</span>(Table2[<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">1</span>] -<span class="st"> </span>Table2[<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">2</span>]), <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 0.0149</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Figure 1: Data simulated from deep vein thrombosis study: Comparison of Jackknife and
+##           DFBETA-approximated global shrinkage factors for selected and unselected
+##           models.
+
+deepvein0 &lt;-<span class="st"> </span><span class="kw">subset</span>(deepvein, status ==<span class="st"> </span><span class="dv">0</span>)
+deepvein1 &lt;-<span class="st"> </span><span class="kw">subset</span>(deepvein, status ==<span class="st"> </span><span class="dv">1</span>)
+
+n0 &lt;-<span class="st"> </span><span class="kw">nrow</span>(deepvein0)
+n1 &lt;-<span class="st"> </span><span class="kw">nrow</span>(deepvein1)
+
+ratio &lt;-<span class="st"> </span><span class="fl">0.2</span>                                     <span class="co"># based on n1 / n0</span>
+## Note: Running this code is time-consuming, since 2 * B * S data sets are analyzed.
+## size &lt;- seq(from = 200, to = 2000, length.out = 19)      # based on nrow(deepvein)
+<span class="co"># B &lt;- 100</span>
+## You may want to reduce B and length.out of size: e.g.
+## size &lt;- seq(from = 200, to = 2000, length.out = 4)
+## B &lt;- 3
+<span class="co">#</span>
+<span class="co"># S &lt;- length(size)</span>
+<span class="co"># </span>
+<span class="co"># shrinkGJ &lt;- shrinkGD &lt;- shrinkGJsel &lt;- shrinkGDsel &lt;- matrix(NA, nrow = B, ncol = S)</span>
+<span class="co"># set.seed(954681)</span>
+<span class="co"># </span>
+<span class="co"># for (s in 1:S) {</span>
+<span class="co">#   cat(&quot;\n&quot;, s)</span>
+<span class="co">#   for (b in 1:B) {</span>
+<span class="co">#     cat(&quot;.&quot;)</span>
+<span class="co">#     data &lt;- rbind(deepvein0[sample(x = 1:n0, size = size[s]*(1-ratio), replace = TRUE),],</span>
+<span class="co">#                   deepvein1[sample(x = 1:n1, size = size[s]*ratio, replace = TRUE),])</span>
+<span class="co">#     </span>
+<span class="co">#     fitfull &lt;- coxph(Surv(time, status) ~ log2ddim + bmi + durther + age + sex + loc +</span>
+<span class="co">#                        fiimut + fvleid, data = data, x = TRUE)</span>
+<span class="co">#     fitsel &lt;- step(fitfull, direction = &quot;backward&quot;, trace = 0)</span>
+<span class="co">#     </span>
+<span class="co">#     if (!is.null(fitsel$coefficients)) {                     # no null model selected</span>
+<span class="co">#       shrinkGJsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span>
+<span class="co">#       shrinkGDsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span>
+<span class="co">#     }</span>
+<span class="co">#     </span>
+<span class="co">#     </span>
+<span class="co">#     fit &lt;- coxph(Surv(time, status) ~ log2ddim + sex + loc, data = data, x = TRUE)</span>
+<span class="co">#     </span>
+<span class="co">#     shrinkGJ[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span>
+<span class="co">#     shrinkGD[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span>
+<span class="co">#   }</span>
+<span class="co"># }</span>
+## In some smaller data sets (and especially when shrinkage factors are estimated with the
+## Jackknife method) there might be issues with convergence in individual data sets.
+## However, coxph will issue a warning.
+<span class="co"># </span>
+<span class="co"># </span>
+<span class="co"># shrinkGDselm &lt;- apply(shrinkGDsel, 2, median)</span>
+<span class="co"># shrinkGJselm &lt;- apply(shrinkGJsel, 2, median)</span>
+<span class="co"># </span>
+<span class="co"># cbind(n = size, Diff_J_D_sel = shrinkGJselm - shrinkGDselm)</span>
+<span class="co"># </span>
+<span class="co"># shrinkGDm &lt;- apply(shrinkGD, 2, median)</span>
+<span class="co"># shrinkGJm &lt;- apply(shrinkGJ, 2, median)</span>
+<span class="co"># </span>
+<span class="co"># cbind(n = size, Diff_J_D = shrinkGJm - shrinkGDm)</span>
+<span class="co"># </span>
+<span class="co"># xrange &lt;- c(0.5, 1)</span>
+## xrange &lt;- range(shrinkGDselm, shrinkGJselm, shrinkGDm, shrinkGJm)
+
+## pdf(&quot;compJvsD.pdf&quot;, width = 6, height = 4)
+<span class="co"># par(oma = c(0, 0, 0.5, 0.5), mar = c(3.5, 4, 0, 0))</span>
+<span class="co"># plot(range(size), xrange, type = &quot;n&quot;, las = 1, xlab = &quot;&quot;, ylab = &quot;&quot;, xaxt = &quot;n&quot;)</span>
+<span class="co"># axis(1, at = size)</span>
+<span class="co"># mtext(side = 1, text = &quot;Sample size&quot;, line = 2.3)</span>
+<span class="co"># mtext(side = 2, text = &quot;Global shrinkage factor&quot;, line = 2.8)</span>
+<span class="co"># </span>
+<span class="co"># points(size, shrinkGDselm, pch = 3, col = &quot;darkolivegreen4&quot;, cex = 1.5)</span>
+<span class="co"># points(size, shrinkGJselm, pch = 1, col = &quot;darkgoldenrod3&quot;, cex = 1.3)</span>
+<span class="co"># lines(size, shrinkGDselm, lty = 2, col = &quot;darkolivegreen4&quot;, lwd = 2)</span>
+<span class="co"># lines(size, shrinkGJselm, lty = 3, col = &quot;darkgoldenrod3&quot;, lwd = 2)</span>
+<span class="co"># </span>
+<span class="co"># points(size, shrinkGDm, pch = 3, col = &quot;firebrick3&quot;, cex = 1.5)</span>
+<span class="co"># points(size, shrinkGJm, pch = 1, col = &quot;dodgerblue3&quot;, cex = 1.3)</span>
+<span class="co"># lines(size, shrinkGDm, lty = 2, col = &quot;firebrick3&quot;, lwd = 2)</span>
+<span class="co"># lines(size, shrinkGJm, lty = 3, col = &quot;dodgerblue3&quot;, lwd = 2)</span>
+<span class="co"># </span>
+<span class="co"># legend(x = 1600, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;unselected&quot;,</span>
+<span class="co">#        col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span>
+<span class="co">#        text.col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), title.col = &quot;black&quot;)</span>
+<span class="co"># </span>
+<span class="co"># legend(x = 1000, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;selected&quot;,</span>
+<span class="co">#        col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span>
+<span class="co">#        text.col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), title.col = &quot;black&quot;)</span>
+## dev.off()</code></pre></div>
+</div>
+<div id="section-5.2-breast-cancer-study" class="section level2">
+<h2>Section 5.2: Breast Cancer Study</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Section 5.2: Breast Cancer Study
+## define predictors as suggested by Sauerbrei (1999, Applied Statistics)
+GBSG$enodes &lt;-<span class="st"> </span><span class="kw">exp</span>(-<span class="fl">0.12</span>*GBSG$posnodal)
+
+
+<span class="co"># create ordinal dummy-coded variable tumgrad for grades 1 to 3</span>
+<span class="kw">contrasts</span>(GBSG$tumgrad) &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">FALSE</span>,
+                                  <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&quot;tumgrad1&quot;</span>, <span class="st">&quot;tumgrad2&quot;</span>)))
+<span class="kw">contrasts</span>(GBSG$tumgrad)</code></pre></div>
+<pre><code>##   tumgrad1 tumgrad2
+## 1        0        0
+## 2        1        0
+## 3        1        1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># for nicer variable names use default dimnames</span>
+<span class="kw">contrasts</span>(GBSG$tumgrad) &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">FALSE</span>)
+
+
+## # model selection (backward elimination) and estimation
+fitg &lt;-<span class="st"> </span><span class="kw">mfp</span>(<span class="kw">Surv</span>(rfst, cens) ~<span class="st"> </span><span class="kw">fp</span>(age) +<span class="st"> </span><span class="kw">fp</span>(prm) +<span class="st"> </span><span class="kw">fp</span>(esm) +<span class="st"> </span><span class="kw">fp</span>(tumsize) +
+<span class="st">              </span><span class="kw">fp</span>(enodes) +<span class="st"> </span>tumgrad +<span class="st"> </span>menostat +<span class="st"> </span><span class="kw">strata</span>(htreat),
+            <span class="dt">family =</span> cox, <span class="dt">data =</span> GBSG, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">select =</span> <span class="fl">0.05</span>)
+<span class="kw">print</span>(fitg)</code></pre></div>
+<pre><code>## Call:
+## mfp(formula = Surv(rfst, cens) ~ fp(age) + fp(prm) + fp(esm) + 
+##     fp(tumsize) + fp(enodes) + tumgrad + menostat + strata(htreat), 
+##     data = GBSG, family = cox, alpha = 0.05, select = 0.05)
+## 
+## 
+## Deviance table:
+##           Resid. Dev
+## Null model    3198.026
+## Linear model  3077.005
+## Final model   3055.989
+## 
+## Fractional polynomials:
+##           df.initial select alpha df.final power1 power2
+## enodes             4   0.05  0.05        1      1      .
+## prm                4   0.05  0.05        2    0.5      .
+## tumgrad1           1   0.05  0.05        1      1      .
+## tumgrad2           1   0.05  0.05        0      .      .
+## tumsize            4   0.05  0.05        0      .      .
+## menostat2          1   0.05  0.05        0      .      .
+## age                4   0.05  0.05        4     -2     -1
+## esm                4   0.05  0.05        0      .      .
+## 
+## 
+## Transformations of covariates:
+##                                  formula
+## age      I((age/100)^-2)+I((age/100)^-1)
+## prm                 I(((prm+1)/100)^0.5)
+## esm                                 &lt;NA&gt;
+## tumsize                             &lt;NA&gt;
+## enodes                       I(enodes^1)
+## tumgrad                          tumgrad
+## menostat                            &lt;NA&gt;
+## 
+## Re-Scaling:
+## Non-positive values in some of the covariates. No re-scaling was performed.
+## 
+##               coef exp(coef) se(coef)      z        p
+## enodes.1   -1.9782   0.13832   0.2272 -8.706 0.00e+00
+## prm.1      -0.5717   0.56456   0.1109 -5.154 2.55e-07
+## tumgrad1.1  0.5137   1.67141   0.2495  2.059 3.95e-02
+## age.1       0.6060   1.83303   0.1188  5.101 3.37e-07
+## age.2      -2.6539   0.07037   0.5902 -4.496 6.91e-06
+## 
+## Likelihood ratio test=142  on 5 df, p=0 n= 686</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Table 3
+## (p-values unconditional on the selected degree and power for prm, age, and
+## enodes = fitg$pvalues)
+varorder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>, <span class="st">&quot;prm.1&quot;</span>, <span class="st">&quot;enodes.1&quot;</span>, <span class="st">&quot;tumgrad1.1&quot;</span>)
+
+t3_beta_j &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="kw">round</span>(fitg$coefficients, <span class="dv">3</span>)[varorder])
+t3_df &lt;-<span class="st"> </span><span class="kw">c</span>(fitg$df.initial[<span class="dv">7</span>, ], <span class="ot">NA</span>, <span class="ot">NA</span>, fitg$df.initial[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), ])
+t3_p &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">round</span>(fitg$pvalues[<span class="dv">7</span>, <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>), <span class="ot">NA</span>, <span class="ot">NA</span>,
+          <span class="kw">round</span>(fitg$pvalues[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>))
+t3_pwsf0 &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+t3_pwsf &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">c</span>(<span class="ot">NA</span>, t3_pwsf0$ShrinkageFactors[varorder]), <span class="dv">3</span>)
+t3_pwsfse &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="kw">sqrt</span>(<span class="kw">diag</span>(t3_pwsf0$ShrinkageFactorsVCOV))[varorder]), <span class="dv">3</span>)
+t3_jointsf0 &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>,
+                      <span class="dt">join=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))
+t3_jointsf &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">c</span>(t3_jointsf0$ShrinkageFactors[varorder[<span class="dv">1</span>]], <span class="ot">NA</span>, <span class="ot">NA</span>,
+                      t3_jointsf0$ShrinkageFactors[varorder[-<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">2</span>)]]), <span class="dv">3</span>)
+t3_jointsfse &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">sqrt</span>(<span class="kw">diag</span>(t3_jointsf0$ShrinkageFactorsVCOV))[<span class="st">&quot;join.age.1&quot;</span>],
+                        <span class="ot">NA</span>, <span class="ot">NA</span>,
+                        <span class="kw">sqrt</span>(<span class="kw">diag</span>(t3_jointsf0$ShrinkageFactorsVCOV))[varorder[-<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">2</span>)]]), <span class="dv">3</span>)
+
+Table3 &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="st">&quot;beta_j&quot;</span> =<span class="st"> </span>t3_beta_j, <span class="st">&quot;df&quot;</span> =<span class="st"> </span>t3_df, <span class="st">&quot;p value&quot;</span> =<span class="st"> </span>t3_p,
+                <span class="st">&quot;PWSF&quot;</span> =<span class="st"> </span>t3_pwsf, <span class="st">&quot;PWSF SE&quot;</span> =<span class="st"> </span>t3_pwsfse,
+                <span class="st">&quot;Joint shrinkage&quot;</span> =<span class="st"> </span>t3_jointsf,
+                <span class="st">&quot;Joint shrinkage SE&quot;</span> =<span class="st"> </span>t3_jointsfse)
+<span class="kw">dimnames</span>(Table3)[[<span class="dv">1</span>]][<span class="dv">1</span>] &lt;-<span class="st"> &quot;age&quot;</span>
+Table3</code></pre></div>
+<pre><code>##            beta_j df p value  PWSF PWSF SE Joint shrinkage Joint shrinkage SE
+## age            NA  4   0.001    NA      NA           0.876              0.188
+## age.1       0.606 NA      NA 0.811   0.236              NA                 NA
+## age.2      -2.654 NA      NA 0.782   0.277              NA                 NA
+## prm.1      -0.572  4   0.000 0.978   0.189           0.982              0.189
+## enodes.1   -1.978  4   0.000 0.987   0.116           0.986              0.116
+## tumgrad1.1  0.514  1   0.028 0.811   0.453           0.809              0.452</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## compute shrinkage factors
+globalsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+globalsf</code></pre></div>
+<pre><code>## Shrinkage Factors (type=global, method=jackknife):
+## [1] 0.9526639
+## 
+## Shrunken Regression Coefficients:
+##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+## -1.8845360 -0.5446421  0.4893540  0.5772861 -2.5282947</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(globalsf$ShrinkageFactorsVCOV)</code></pre></div>
+<pre><code>##            global
+## global 0.08062613</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+pwsf</code></pre></div>
+<pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
+##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+##  0.9874769  0.9777288  0.8108045  0.8108243  0.7822610 
+## 
+## Shrunken Regression Coefficients:
+##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+## -1.9534020 -0.5589719  0.4164852  0.4913355 -2.0760587</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sqrt</span>(<span class="kw">diag</span>(pwsf$ShrinkageFactorsVCOV)), <span class="dv">3</span>)</code></pre></div>
+<pre><code>##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+##      0.116      0.189      0.453      0.236      0.277</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">cov2cor</span>(pwsf$ShrinkageFactorsVCOV), <span class="dv">3</span>)</code></pre></div>
+<pre><code>##            enodes.1  prm.1 tumgrad1.1  age.1  age.2
+## enodes.1      1.000 -0.055     -0.078  0.030  0.021
+## prm.1        -0.055  1.000     -0.200  0.026  0.032
+## tumgrad1.1   -0.078 -0.200      1.000 -0.040 -0.035
+## age.1         0.030  0.026     -0.040  1.000  0.984
+## age.2         0.021  0.032     -0.035  0.984  1.000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">jointsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>,
+                  <span class="dt">join=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))
+jointsf</code></pre></div>
+<pre><code>## Shrinkage Factors (type=parameterwise with join option, method=jackknife):
+##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+##  0.9862779  0.9816686  0.8094979  0.8763299  0.8763299 
+## 
+## Shrunken Regression Coefficients:
+##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
+## -1.9510302 -0.5612242  0.4158141  0.5310300 -2.3257103</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sqrt</span>(<span class="kw">diag</span>(jointsf$ShrinkageFactorsVCOV)), <span class="dv">3</span>)</code></pre></div>
+<pre><code>## join.age.1   enodes.1      prm.1 tumgrad1.1 
+##      0.188      0.116      0.189      0.452</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Figure 2: selected model: Log hazard relative to 50 years
+<span class="co"># refit model fitg explicitly including the two dummy variables of</span>
+<span class="co"># tumgrad</span>
+GBSG &lt;-<span class="st"> </span><span class="kw">cbind</span>(GBSG, <span class="kw">model.matrix</span>(~tumgrad, <span class="dt">data =</span> GBSG)[, -<span class="dv">1</span>])
+
+fitg &lt;-<span class="st"> </span><span class="kw">mfp</span>(<span class="kw">Surv</span>(rfst, cens) ~<span class="st"> </span><span class="kw">fp</span>(age) +<span class="st"> </span><span class="kw">fp</span>(prm) +<span class="st"> </span><span class="kw">fp</span>(esm) +<span class="st"> </span><span class="kw">fp</span>(tumsize) +
+<span class="st">              </span><span class="kw">fp</span>(enodes) +<span class="st"> </span>tumgrad1 +<span class="st"> </span>tumgrad2 +<span class="st"> </span>menostat +<span class="st"> </span><span class="kw">strata</span>(htreat),
+            <span class="dt">family =</span> cox, <span class="dt">data =</span> GBSG, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">select =</span> <span class="fl">0.05</span>)
+
+globalsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;global&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+pwsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>)
+jointsf &lt;-<span class="st"> </span><span class="kw">shrink</span>(fitg, <span class="dt">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;jackknife&quot;</span>,
+                  <span class="dt">join=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))
+
+<span class="co"># define new data for which prediction is requested</span>
+<span class="co"># newdatref is the new data set for the reference observation</span>
+age &lt;-<span class="st"> </span><span class="dv">30</span>:<span class="dv">75</span>
+newdat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">enodes =</span> <span class="dv">1</span>, <span class="dt">prm =</span> <span class="dv">1</span>, <span class="dt">tumgrad1 =</span> <span class="dv">0</span>,
+                     <span class="dt">htreat =</span> <span class="kw">factor</span>(<span class="dv">1</span>))
+newdatref &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="dv">50</span>, <span class="dt">enodes =</span> <span class="dv">1</span>, <span class="dt">prm =</span> <span class="dv">1</span>, <span class="dt">tumgrad1 =</span> <span class="dv">0</span>,
+                        <span class="dt">htreat =</span> <span class="kw">factor</span>(<span class="dv">1</span>))
+
+
+xaxis &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">min</span>(age), <span class="dt">to =</span> <span class="kw">max</span>(age), <span class="dt">by =</span> <span class="dv">5</span>)
+
+
+<span class="co"># pdf(&quot;plotgbsg.pdf&quot;, width = 6, height = 6)</span>
+<span class="kw">par</span>(<span class="dt">fig =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">new =</span> <span class="ot">FALSE</span>, <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),
+    <span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))
+<span class="kw">hist</span>(GBSG$age[(GBSG$age &gt;=<span class="st"> </span><span class="kw">min</span>(age)) &amp;<span class="st"> </span>(GBSG$age &lt;=<span class="st"> </span><span class="kw">max</span>(age))],
+     <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">min</span>(age), <span class="dt">to =</span> <span class="kw">max</span>(age), <span class="dt">by =</span> <span class="fl">2.5</span>), <span class="dt">main =</span> <span class="st">&quot;&quot;</span>,
+     <span class="dt">xlim =</span> <span class="kw">range</span>(age), <span class="dt">xaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>,
+     <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;gray88&quot;</span>)
+<span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">at =</span> xaxis)
+<span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">60</span>, <span class="dt">by =</span> <span class="dv">20</span>), <span class="dt">las =</span> <span class="dv">2</span>)
+<span class="kw">mtext</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">text =</span> <span class="st">&quot;Age&quot;</span>, <span class="dt">line =</span> <span class="fl">2.3</span>)
+<span class="kw">mtext</span>(<span class="dt">side =</span> <span class="dv">2</span>, <span class="dt">text =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="dt">line =</span> <span class="fl">2.8</span>)
+<span class="kw">box</span>()
+
+<span class="kw">par</span>(<span class="dt">fig =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.3</span>,<span class="dv">1</span>), <span class="dt">new =</span> <span class="ot">TRUE</span>, <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),
+    <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="kw">range</span>(age), <span class="kw">c</span>(-<span class="fl">0.05</span>, <span class="fl">0.8</span>), <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>,
+     <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>)
+<span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">at =</span> xaxis, <span class="dt">labels =</span> <span class="kw">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dt">times =</span> <span class="kw">length</span>(xaxis)))
+<span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="fl">0.7</span>, <span class="dt">by =</span> <span class="fl">0.1</span>), <span class="dt">las =</span> <span class="dv">2</span>,
+     <span class="dt">labels =</span> <span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="fl">0.7</span>, <span class="dt">by =</span> <span class="fl">0.1</span>))
+<span class="kw">mtext</span>(<span class="dt">side =</span> <span class="dv">2</span>, <span class="dt">text =</span> <span class="st">&quot;Log hazard relative to 50 years&quot;</span>, <span class="dt">line =</span> <span class="fl">2.8</span>)
+<span class="kw">lines</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> <span class="kw">predict</span>(fitg, <span class="dt">newdata =</span> newdat, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>) -
+<span class="st">        </span><span class="kw">predict</span>(fitg, <span class="dt">newdata =</span> newdatref, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;gray25&quot;</span>,
+      <span class="dt">lwd =</span> <span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> <span class="kw">predict</span>(globalsf, <span class="dt">newdata =</span> newdat, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>) -
+<span class="st">        </span><span class="kw">predict</span>(globalsf, <span class="dt">newdata =</span> newdatref, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="dt">lty =</span> <span class="dv">5</span>,
+      <span class="dt">col =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> <span class="kw">predict</span>(pwsf, <span class="dt">newdata =</span> newdat, <span class="dt">type=</span><span class="st">&quot;lp&quot;</span>) -
+<span class="st">        </span><span class="kw">predict</span>(pwsf, <span class="dt">newdata =</span> newdatref, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="dt">lty =</span> <span class="dv">2</span>,
+      <span class="dt">col =</span> <span class="st">&quot;dodgerblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> <span class="kw">predict</span>(jointsf, <span class="dt">newdata =</span> newdat, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>) -
+<span class="st">        </span><span class="kw">predict</span>(jointsf, <span class="dt">newdata =</span> newdatref, <span class="dt">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="dt">lty =</span> <span class="dv">4</span>,
+      <span class="dt">col =</span> <span class="st">&quot;firebrick3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)
+
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">inset =</span> <span class="fl">0.02</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">lty =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>),
+       <span class="dt">title =</span> <span class="st">&quot;SHRINKAGE&quot;</span>,
+       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Global&quot;</span>, <span class="st">&quot;Joint&quot;</span>, <span class="st">&quot;Parameterwise&quot;</span>),
+       <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>,
+       <span class="dt">text.col =</span> <span class="kw">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>))</code></pre></div>
+<p><img src="data:image/png;base64,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" title alt style="display:block; margin: auto" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dev.off()</span></code></pre></div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
