@@ -1,6 +1,6 @@
 Package: shrink
 Title: Global, Parameterwise and Joint Shrinkage Factor Estimation
-Version: 1.2.1
+Version: 1.2.2
 Authors@R: c(person("Daniela", "Dunkler", email = "daniela.dunkler@meduniwien.ac.at", role = c("aut", "cre")),
     person("Georg", "Heinze", role = "aut"))
 Description: The predictive value of a statistical model can often be improved
@@ -17,16 +17,16 @@ Description: The predictive value of a statistical model can often be improved
     applied. Global, parameterwise and joint shrinkage for models fitted by lm(),
     glm(), coxph(), or mfp() is available.
 Depends: R (>= 3.2.2)
-License: GPL-2
+License: GPL-3
 Imports: survival, MASS, rms, mfp
 LazyData: true
 Suggests: aod, knitr, rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2016-03-09 09:27:15 UTC; Biometrician
+Packaged: 2022-01-31 14:44:45 UTC; Lena
 Author: Daniela Dunkler [aut, cre],
   Georg Heinze [aut]
 Maintainer: Daniela Dunkler <daniela.dunkler@meduniwien.ac.at>
 Repository: CRAN
-Date/Publication: 2016-03-09 15:21:00
+Date/Publication: 2022-02-08 10:10:02 UTC

@@ -1,8 +1,8 @@
-## ---- include=FALSE------------------------------------------------------
+## ---- include=FALSE-----------------------------------------------------------
 library(knitr)
 opts_chunk$set(out.extra='style="display:block; margin: auto"', fig.align="center")
 
-## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5--------
+## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-------------
 ################################################################################
 ### R code for
 ### "Global, Parameterwise and Joint Shrinkage Factor Estimation"
@@ -19,7 +19,7 @@ library("aod")                                                  # for wald-test
 
 sessionInfo()
 
-## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5--------
+## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-------------
 ## Section 2.1: Deep Vein Thrombosis Study
 ## load data
 data("deepvein")
@@ -36,7 +36,7 @@ round(100*table(deepvein$status)/nrow(deepvein), 2)
 
 sort(names(deepvein))
 
-## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5--------
+## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-------------
 ## Section 2.2: Breast Cancer Study
 ## load data
 data("GBSG")
@@ -58,7 +58,7 @@ survfit(Surv(rfst, cens2) ~ 1, data = GBSG)
 
 sort(names(GBSG))
 
-## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-----------------
+## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-------------
 ## Section 5.1: Deep Vein Thrombosis Study
 # set the reference level for all categorical variables
 deepvein$sex <- relevel(deepvein$sex, ref = "female")
@@ -243,7 +243,7 @@ ratio <- 0.2                                     # based on n1 / n0
 #        text.col = c("darkgoldenrod3", "chartreuse4"), title.col = "black")
 ## dev.off()
 
-## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-----------------
+## ---- eval = TRUE, warning = FALSE, fig.width = 7, fig.height = 5-------------
 ## Section 5.2: Breast Cancer Study
 ## define predictors as suggested by Sauerbrei (1999, Applied Statistics)
 GBSG$enodes <- exp(-0.12*GBSG$posnodal)
