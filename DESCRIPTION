@@ -1,6 +1,6 @@
 Package: shrink
 Title: Global, Parameterwise and Joint Shrinkage Factor Estimation
-Version: 1.2.2
+Version: 1.2.3
 Authors@R: c(person("Daniela", "Dunkler", email = "daniela.dunkler@meduniwien.ac.at", role = c("aut", "cre")),
     person("Georg", "Heinze", role = "aut"))
 Description: The predictive value of a statistical model can often be improved
@@ -22,11 +22,14 @@ Imports: survival, MASS, rms, mfp
 LazyData: true
 Suggests: aod, knitr, rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
+Encoding: UTF-8
+URL: https://github.com/biometrician/shrink
+BugReports: https://github.com/biometrician/shrink/issues
 NeedsCompilation: no
-Packaged: 2022-01-31 14:44:45 UTC; Lena
+Packaged: 2023-10-31 12:12:55 UTC; Biometrician
 Author: Daniela Dunkler [aut, cre],
   Georg Heinze [aut]
 Maintainer: Daniela Dunkler <daniela.dunkler@meduniwien.ac.at>
 Repository: CRAN
-Date/Publication: 2022-02-08 10:10:02 UTC
+Date/Publication: 2023-10-31 12:30:02 UTC

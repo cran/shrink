@@ -16,25 +16,38 @@
 
 <title>JSS Example Code</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -52,55 +65,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -109,13 +121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -127,7 +146,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -145,159 +344,153 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>This is the example code for Dunkler D, Sauerbrei W, Heinze G (2016). Global, Parameterwise and Joint Shrinkage Factor Estimation. <em>Journal of Statistical Software</em>. <strong>69</strong>(8), 1-19. <a href="http://dx.doi.org/10.18637/jss.v069.i08">http://dx.doi.org/10.18637/jss.v069.i08</a>.</p>
+<p>This is the example code for Dunkler D, Sauerbrei W, Heinze G (2016).
+Global, Parameterwise and Joint Shrinkage Factor Estimation. <em>Journal
+of Statistical Software</em>. <strong>69</strong>(8), 1-19. <a href="http://dx.doi.org/10.18637/jss.v069.i08">http://dx.doi.org/10.18637/jss.v069.i08</a>.</p>
 <div id="example-r-code" class="section level2">
 <h2>Example R Code</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">################################################################################</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">### R code for</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">### &quot;Global, Parameterwise and Joint Shrinkage Factor Estimation&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">### written by Daniela Dunkler, March 2016</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">################################################################################</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## works with R 3.2.3 &amp; shrink-package 1.2.1</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">## load the packages</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;shrink&quot;</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;survival&quot;</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;mfp&quot;</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;aod&quot;</span>)                                                  <span class="co"># for wald-test</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">################################################################################</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">### R code for</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="do">### &quot;Global, Parameterwise and Joint Shrinkage Factor Estimation&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="do">### written by Daniela Dunkler, March 2016</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="do">################################################################################</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="do">## works with R 3.2.3 &amp; shrink-package 1.2.1</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="do">## load the packages</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;shrink&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;survival&quot;</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;mfp&quot;</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;aod&quot;</span>)                                                  <span class="co"># for wald-test</span></span></code></pre></div>
 <pre><code>## 
 ## Attache Paket: &#39;aod&#39;</code></pre>
 <pre><code>## Das folgende Objekt ist maskiert &#39;package:survival&#39;:
 ## 
 ##     rats</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.0 (2021-05-18)
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.3.1 (2023-06-16 ucrt)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19042)
+## Running under: Windows 10 x64 (build 17763)
 ## 
 ## Matrix products: default
+## 
 ## 
 ## locale:
 ## [1] LC_COLLATE=C                    LC_CTYPE=German_Austria.1252   
 ## [3] LC_MONETARY=German_Austria.1252 LC_NUMERIC=C                   
 ## [5] LC_TIME=German_Austria.1252    
 ## 
+## time zone: Europe/Vienna
+## tzcode source: internal
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] aod_1.3.1       mfp_1.5.2.1     survival_3.2-11 shrink_1.2.2   
-## [5] knitr_1.37     
+## [1] aod_1.3.2      mfp_1.5.4      survival_3.5-5 shrink_1.2.3   knitr_1.45    
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] nlme_3.1-152         matrixStats_0.61.0   lubridate_1.8.0     
-##   [4] rms_6.2-0            RColorBrewer_1.1-2   tools_4.1.0         
-##   [7] backports_1.4.1      bslib_0.3.1          utf8_1.2.2          
-##  [10] R6_2.5.1             rpart_4.1-15         Hmisc_4.6-0         
-##  [13] DBI_1.1.2            colorspace_2.0-2     nnet_7.3-16         
-##  [16] withr_2.4.3          tidyselect_1.1.1     gridExtra_2.3       
-##  [19] compiler_4.1.0       quantreg_5.86        htmlTable_2.4.0     
-##  [22] SparseM_1.81         sandwich_3.0-1       sass_0.4.0          
-##  [25] scales_1.1.1         checkmate_2.0.0      mvtnorm_1.1-3       
-##  [28] polspline_1.1.19     stringr_1.4.0        digest_0.6.29       
-##  [31] foreign_0.8-81       rmarkdown_2.11       base64enc_0.1-3     
-##  [34] jpeg_0.1-9           pkgconfig_2.0.3      htmltools_0.5.2     
-##  [37] parallelly_1.30.0    fastmap_1.1.0        htmlwidgets_1.5.4   
-##  [40] rlang_0.4.12         rstudioapi_0.13      jquerylib_0.1.4     
-##  [43] generics_0.1.1       zoo_1.8-9            jsonlite_1.7.3      
-##  [46] dplyr_1.0.7          ModelMetrics_1.2.2.2 magrittr_2.0.1      
-##  [49] Formula_1.2-4        Matrix_1.3-3         Rcpp_1.0.8          
-##  [52] munsell_0.5.0        fansi_1.0.2          lifecycle_1.0.1     
-##  [55] multcomp_1.4-18      stringi_1.7.6        pROC_1.18.0         
-##  [58] yaml_2.2.1           MASS_7.3-54          plyr_1.8.6          
-##  [61] recipes_0.1.17       grid_4.1.0           parallel_4.1.0      
-##  [64] listenv_0.8.0        crayon_1.4.2         lattice_0.20-44     
-##  [67] splines_4.1.0        pillar_1.6.4         future.apply_1.8.1  
-##  [70] reshape2_1.4.4       codetools_0.2-18     stats4_4.1.0        
-##  [73] glue_1.6.0           evaluate_0.14        latticeExtra_0.6-29 
-##  [76] data.table_1.14.2    png_0.1-7            vctrs_0.3.8         
-##  [79] foreach_1.5.1        MatrixModels_0.5-0   gtable_0.3.0        
-##  [82] purrr_0.3.4          future_1.23.0        assertthat_0.2.1    
-##  [85] ggplot2_3.3.5        xfun_0.29            gower_0.2.2         
-##  [88] prodlim_2019.11.13   class_7.3-19         timeDate_3043.102   
-##  [91] tibble_3.1.6         conquer_1.2.1        iterators_1.0.13    
-##  [94] cluster_2.1.2        lava_1.6.10          globals_0.14.0      
-##  [97] TH.data_1.1-0        ellipsis_0.3.2       caret_6.0-90        
-## [100] ipred_0.9-12</code></pre>
+##  [1] gtable_0.3.4        xfun_0.40           bslib_0.5.1        
+##  [4] ggplot2_3.4.4       htmlwidgets_1.6.2   lattice_0.21-8     
+##  [7] numDeriv_2016.8-1.1 vctrs_0.6.3         tools_4.3.1        
+## [10] generics_0.1.3      sandwich_3.0-2      tibble_3.2.1       
+## [13] fansi_1.0.4         cluster_2.1.4       pkgconfig_2.0.3    
+## [16] Matrix_1.6-1        data.table_1.14.8   checkmate_2.2.0    
+## [19] lifecycle_1.0.3     compiler_4.3.1      stringr_1.5.0      
+## [22] MatrixModels_0.5-2  munsell_0.5.0       codetools_0.2-19   
+## [25] SparseM_1.81        quantreg_5.97       htmltools_0.5.6    
+## [28] sass_0.4.7          yaml_2.3.7          htmlTable_2.4.2    
+## [31] Formula_1.2-5       pillar_1.9.0        jquerylib_0.1.4    
+## [34] MASS_7.3-60         cachem_1.0.8        rms_6.7-0          
+## [37] Hmisc_5.1-1         rpart_4.1.19        multcomp_1.4-25    
+## [40] nlme_3.1-162        tidyselect_1.2.0    digest_0.6.33      
+## [43] polspline_1.1.23    mvtnorm_1.2-3       stringi_1.7.12     
+## [46] dplyr_1.1.2         splines_4.3.1       fastmap_1.1.1      
+## [49] grid_4.3.1          colorspace_2.1-0    cli_3.6.1          
+## [52] magrittr_2.0.3      base64enc_0.1-3     utf8_1.2.3         
+## [55] TH.data_1.1-2       foreign_0.8-84      scales_1.2.1       
+## [58] backports_1.4.1     rmarkdown_2.25      nnet_7.3-19        
+## [61] gridExtra_2.3       zoo_1.8-12          evaluate_0.22      
+## [64] rlang_1.1.1         glue_1.6.2          rstudioapi_0.15.0  
+## [67] jsonlite_1.8.7      R6_2.5.1</code></pre>
 </div>
 <div id="section-2.1-deep-vein-thrombosis-study" class="section level2">
 <h2>Section 2.1: Deep Vein Thrombosis Study</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Section 2.1: Deep Vein Thrombosis Study</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## load data</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;deepvein&quot;</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># number of observations, events, median observation time, and names of</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># variables</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(deepvein)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## Section 2.1: Deep Vein Thrombosis Study</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="do">## load data</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;deepvein&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co"># number of observations, events, median observation time, and names of</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># variables</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">nrow</span>(deepvein)</span></code></pre></div>
 <pre><code>## [1] 929</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>deepvein<span class="sc">$</span>status2 <span class="ot">&lt;-</span> <span class="fu">abs</span>(deepvein<span class="sc">$</span>status<span class="dv">-1</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status2) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> deepvein)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>deepvein<span class="sc">$</span>status2 <span class="ot">&lt;-</span> <span class="fu">abs</span>(deepvein<span class="sc">$</span>status<span class="dv">-1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status2) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> deepvein)</span></code></pre></div>
 <pre><code>## Call: survfit(formula = Surv(time, status2) ~ 1, data = deepvein)
 ## 
-##       n  events  median 0.95LCL 0.95UCL 
-##   929.0   782.0    37.8    35.6    41.7</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(deepvein<span class="sc">$</span>status)</span></code></pre></div>
+##        n events median 0.95LCL 0.95UCL
+## [1,] 929    782   37.8    35.6    41.7</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">table</span>(deepvein<span class="sc">$</span>status)</span></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 782 147</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">table</span>(deepvein<span class="sc">$</span>status)<span class="sc">/</span><span class="fu">nrow</span>(deepvein), <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">table</span>(deepvein<span class="sc">$</span>status)<span class="sc">/</span><span class="fu">nrow</span>(deepvein), <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 
 ##     0     1 
 ## 84.18 15.82</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">names</span>(deepvein))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">names</span>(deepvein))</span></code></pre></div>
 <pre><code>##  [1] &quot;age&quot;      &quot;bmi&quot;      &quot;durther&quot;  &quot;fiimut&quot;   &quot;fvleid&quot;   &quot;loc&quot;     
 ##  [7] &quot;log2ddim&quot; &quot;pnr&quot;      &quot;sex&quot;      &quot;status&quot;   &quot;status2&quot;  &quot;time&quot;</code></pre>
 </div>
 <div id="section-2.2-breast-cancer-study" class="section level2">
 <h2>Section 2.2: Breast Cancer Study</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Section 2.2: Breast Cancer Study</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## load data</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;GBSG&quot;</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># number of observations, events, median observation time, and names of</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># variables</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(GBSG)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="do">## Section 2.2: Breast Cancer Study</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="do">## load data</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;GBSG&quot;</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co"># number of observations, events, median observation time, and names of</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="co"># variables</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="fu">nrow</span>(GBSG)</span></code></pre></div>
 <pre><code>## [1] 686</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(GBSG<span class="sc">$</span>cens)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">table</span>(GBSG<span class="sc">$</span>cens)</span></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 387 299</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">table</span>(GBSG<span class="sc">$</span>cens)<span class="sc">/</span><span class="fu">nrow</span>(GBSG), <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">table</span>(GBSG<span class="sc">$</span>cens)<span class="sc">/</span><span class="fu">nrow</span>(GBSG), <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 
 ##     0     1 
 ## 56.41 43.59</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>GBSG<span class="sc">$</span>cens2 <span class="ot">&lt;-</span> <span class="fu">abs</span>(GBSG<span class="sc">$</span>cens<span class="dv">-1</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># median observation time is given in days here</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">survfit</span>(<span class="fu">Surv</span>(rfst, cens2) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> GBSG)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>GBSG<span class="sc">$</span>cens2 <span class="ot">&lt;-</span> <span class="fu">abs</span>(GBSG<span class="sc">$</span>cens<span class="dv">-1</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co"># median observation time is given in days here</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="fu">survfit</span>(<span class="fu">Surv</span>(rfst, cens2) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> GBSG)</span></code></pre></div>
 <pre><code>## Call: survfit(formula = Surv(rfst, cens2) ~ 1, data = GBSG)
 ## 
-##       n  events  median 0.95LCL 0.95UCL 
-##     686     387    1645    1570    1717</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median observation time in months</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1645</span> <span class="sc">/</span> <span class="fl">30.5</span></span></code></pre></div>
+##        n events median 0.95LCL 0.95UCL
+## [1,] 686    387   1645    1570    1717</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="co"># median observation time in months</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="dv">1645</span> <span class="sc">/</span> <span class="fl">30.5</span></span></code></pre></div>
 <pre><code>## [1] 53.93443</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">names</span>(GBSG))</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">names</span>(GBSG))</span></code></pre></div>
 <pre><code>##  [1] &quot;age&quot;      &quot;cens&quot;     &quot;cens2&quot;    &quot;esm&quot;      &quot;htreat&quot;   &quot;id&quot;      
 ##  [7] &quot;menostat&quot; &quot;posnodal&quot; &quot;prm&quot;      &quot;rfst&quot;     &quot;tumgrad&quot;  &quot;tumsize&quot;</code></pre>
 </div>
 <div id="section-5.1-deep-vein-thrombosis-study" class="section level2">
 <h2>Section 5.1: Deep Vein Thrombosis Study</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Section 5.1: Deep Vein Thrombosis Study</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># set the reference level for all categorical variables</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>deepvein<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>sex, <span class="at">ref =</span> <span class="st">&quot;female&quot;</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>deepvein<span class="sc">$</span>fiimut <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>fiimut, <span class="at">ref =</span> <span class="st">&quot;absent&quot;</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>deepvein<span class="sc">$</span>fvleid <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>fvleid, <span class="at">ref =</span> <span class="st">&quot;absent&quot;</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>deepvein<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>loc, <span class="at">ref =</span> <span class="st">&quot;PE&quot;</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># contrasts(deepvein$loc)</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="do">## fit full model, and compute shrinkage factors (jackknife estimates and dfbeta</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="do">## approximations)</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>fitfull <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> log2ddim <span class="sc">+</span> bmi <span class="sc">+</span> durther <span class="sc">+</span> age <span class="sc">+</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>                 sex <span class="sc">+</span> loc <span class="sc">+</span> fiimut <span class="sc">+</span> fvleid, <span class="at">data =</span> deepvein, <span class="at">x =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fitfull)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="do">## Section 5.1: Deep Vein Thrombosis Study</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="co"># set the reference level for all categorical variables</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>deepvein<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>sex, <span class="at">ref =</span> <span class="st">&quot;female&quot;</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>deepvein<span class="sc">$</span>fiimut <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>fiimut, <span class="at">ref =</span> <span class="st">&quot;absent&quot;</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>deepvein<span class="sc">$</span>fvleid <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>fvleid, <span class="at">ref =</span> <span class="st">&quot;absent&quot;</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a>deepvein<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">relevel</span>(deepvein<span class="sc">$</span>loc, <span class="at">ref =</span> <span class="st">&quot;PE&quot;</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a><span class="co"># contrasts(deepvein$loc)</span></span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a><span class="do">## fit full model, and compute shrinkage factors (jackknife estimates and dfbeta</span></span>
+<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a><span class="do">## approximations)</span></span>
+<span id="cb28-12"><a href="#cb28-12" tabindex="-1"></a>fitfull <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> log2ddim <span class="sc">+</span> bmi <span class="sc">+</span> durther <span class="sc">+</span> age <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" tabindex="-1"></a>                 sex <span class="sc">+</span> loc <span class="sc">+</span> fiimut <span class="sc">+</span> fvleid, <span class="at">data =</span> deepvein, <span class="at">x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" tabindex="-1"></a><span class="fu">summary</span>(fitfull)</span></code></pre></div>
 <pre><code>## Call:
 ## coxph(formula = Surv(time, status) ~ log2ddim + bmi + durther + 
 ##     age + sex + loc + fiimut + fvleid, data = deepvein, x = TRUE)
@@ -332,16 +525,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Likelihood ratio test= 26.2  on 9 df,   p=0.002
 ## Wald test            = 23.07  on 9 df,   p=0.006
 ## Score (logrank) test = 23.9  on 9 df,   p=0.004</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wald-test for categorical predictor &quot;loc&quot;</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wald.test</span>(<span class="at">Sigma =</span> <span class="fu">vcov</span>(fitfull)[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">b =</span> fitfull<span class="sc">$</span>coeff[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="at">Terms =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="do">## wald-test for categorical predictor &quot;loc&quot;</span></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="fu">wald.test</span>(<span class="at">Sigma =</span> <span class="fu">vcov</span>(fitfull)[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),</span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],</span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a>          <span class="at">b =</span> fitfull<span class="sc">$</span>coeff[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="at">Terms =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## Wald test:
 ## ----------
 ## 
 ## Chi-squared test:
 ## X2 = 8.6, df = 2, P(&gt; X2) = 0.014</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shrink</span>(fitfull, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">shrink</span>(fitfull, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=global, method=jackknife):
 ## [1] 0.6069174
 ## 
@@ -350,10 +543,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   0.133228852   0.003559850   0.013279842  -0.002411042   0.300986429 
 ##     locdistal   locproximal fiimutpresent fvleidpresent 
 ##  -0.549317699  -0.108851134  -0.098668180  -0.066084738</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## apply backward elimination to full model*, and compute shrinkage factors to</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="do">## selected model</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="do">## * dummy variables of loc are jointly tested and selected</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>fitd <span class="ot">&lt;-</span> <span class="fu">step</span>(fitfull, <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="do">## apply backward elimination to full model*, and compute shrinkage factors to</span></span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="do">## selected model</span></span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a><span class="do">## * dummy variables of loc are jointly tested and selected</span></span>
+<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>fitd <span class="ot">&lt;-</span> <span class="fu">step</span>(fitfull, <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
 <pre><code>## Start:  AIC=1784.06
 ## Surv(time, status) ~ log2ddim + bmi + durther + age + sex + loc + 
 ##     fiimut + fvleid
@@ -424,7 +617,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## - log2ddim  1 1780.3
 ## - sex       1 1781.2
 ## - loc       2 1782.8</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fitd)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">print</span>(fitd)</span></code></pre></div>
 <pre><code>## Call:
 ## coxph(formula = Surv(time, status) ~ log2ddim + sex + loc, data = deepvein, 
 ##     x = TRUE)
@@ -437,24 +630,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Likelihood ratio test=24.49  on 4 df, p=6.367e-05
 ## n= 929, number of events= 147</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wald-test for categorical predictor &quot;loc&quot;</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wald.test</span>(<span class="at">Sigma =</span> <span class="fu">vcov</span>(fitd)[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">b =</span> fitd<span class="sc">$</span>coeff[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="at">Terms =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="do">## wald-test for categorical predictor &quot;loc&quot;</span></span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a><span class="fu">wald.test</span>(<span class="at">Sigma =</span> <span class="fu">vcov</span>(fitd)[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>),</span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)],</span>
+<span id="cb38-4"><a href="#cb38-4" tabindex="-1"></a>          <span class="at">b =</span> fitd<span class="sc">$</span>coeff[<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)], <span class="at">Terms =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## Wald test:
 ## ----------
 ## 
 ## Chi-squared test:
 ## X2 = 9.1, df = 2, P(&gt; X2) = 0.01</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=global, method=jackknife):
 ## [1] 0.8076362
 ## 
 ## Shrunken Regression Coefficients:
 ##    log2ddim     sexmale   locdistal locproximal 
 ##   0.1767045   0.3964779  -0.7449390  -0.1656066</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>pwsf</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a>pwsf</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
 ##    log2ddim     sexmale   locdistal locproximal 
 ##   0.7321036   0.8351074   0.8393993   0.1321006 
@@ -462,11 +655,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Shrunken Regression Coefficients:
 ##    log2ddim     sexmale   locdistal locproximal 
 ##  0.16017851  0.40996379 -0.77423621 -0.02708736</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">diag</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">diag</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV))</span></code></pre></div>
 <pre><code>##    log2ddim     sexmale   locdistal locproximal 
 ##   0.3703055   0.3699730   0.3268146   0.8696058</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>       <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=parameterwise with join option, method=jackknife):
 ##    log2ddim     sexmale   locdistal locproximal 
 ##   0.7806284   0.8363976   0.8055175   0.8055175 
@@ -474,14 +667,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Shrunken Regression Coefficients:
 ##    log2ddim     sexmale   locdistal locproximal 
 ##   0.1707954   0.4105972  -0.7429847  -0.1651721</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dummy variables of loc are separately tested and selected</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="do">## generate dummy variables, fit full model and then apply backward elimination</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>deepvein <span class="ot">&lt;-</span> <span class="fu">cbind</span>(deepvein, <span class="fu">model.matrix</span>( <span class="sc">~</span> loc, <span class="at">data =</span> deepvein)[, <span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>fitfull2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> log2ddim <span class="sc">+</span> bmi <span class="sc">+</span> durther <span class="sc">+</span> age <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                  sex <span class="sc">+</span> locdistal <span class="sc">+</span> locproximal <span class="sc">+</span> fiimut <span class="sc">+</span> fvleid,</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> deepvein, <span class="at">x =</span> <span class="cn">TRUE</span>)  <span class="co"># fitfull2 is identical to fitfull</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>fitd2 <span class="ot">&lt;-</span> <span class="fu">step</span>(fitfull2, <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="do">## dummy variables of loc are separately tested and selected</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a><span class="do">## generate dummy variables, fit full model and then apply backward elimination</span></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>deepvein <span class="ot">&lt;-</span> <span class="fu">cbind</span>(deepvein, <span class="fu">model.matrix</span>( <span class="sc">~</span> loc, <span class="at">data =</span> deepvein)[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a>fitfull2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> log2ddim <span class="sc">+</span> bmi <span class="sc">+</span> durther <span class="sc">+</span> age <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a>                  sex <span class="sc">+</span> locdistal <span class="sc">+</span> locproximal <span class="sc">+</span> fiimut <span class="sc">+</span> fvleid,</span>
+<span id="cb48-6"><a href="#cb48-6" tabindex="-1"></a>                  <span class="at">data =</span> deepvein, <span class="at">x =</span> <span class="cn">TRUE</span>)  <span class="co"># fitfull2 is identical to fitfull</span></span>
+<span id="cb48-7"><a href="#cb48-7" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" tabindex="-1"></a>fitd2 <span class="ot">&lt;-</span> <span class="fu">step</span>(fitfull2, <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
 <pre><code>## Start:  AIC=1784.06
 ## Surv(time, status) ~ log2ddim + bmi + durther + age + sex + locdistal + 
 ##     locproximal + fiimut + fvleid
@@ -569,7 +762,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## - log2ddim   1 1778.9
 ## - sex        1 1780.7
 ## - locdistal  1 1782.8</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fitd2)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="fu">summary</span>(fitd2)</span></code></pre></div>
 <pre><code>## Call:
 ## coxph(formula = Surv(time, status) ~ log2ddim + sex + locdistal, 
 ##     data = deepvein, x = TRUE)
@@ -592,14 +785,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Likelihood ratio test= 23.16  on 3 df,   p=4e-05
 ## Wald test            = 20.03  on 3 df,   p=2e-04
 ## Score (logrank) test = 20.85  on 3 df,   p=1e-04</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shrink</span>(fitd2, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="fu">shrink</span>(fitd2, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=global, method=jackknife):
 ## [1] 0.8439991
 ## 
 ## Shrunken Regression Coefficients:
 ##   log2ddim    sexmale  locdistal 
 ##  0.1721124  0.4180761 -0.7094099</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shrink</span>(fitd2, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">shrink</span>(fitd2, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
 ##  log2ddim   sexmale locdistal 
 ## 0.7700839 0.8317218 0.8975722 
@@ -607,29 +800,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Shrunken Regression Coefficients:
 ##   log2ddim    sexmale  locdistal 
 ##  0.1570393  0.4119946 -0.7544400</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Table 2</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>t2_jack <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>             pwsf<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">system.time</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>))[<span class="dv">1</span>])</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>t2_dfbeta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>,</span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))<span class="sc">$</span>ShrinkageFactors,</span>
-<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>               <span class="fu">system.time</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>))[<span class="dv">1</span>])</span>
-<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">Jackknife =</span> t2_jack, <span class="at">DFBETA =</span> t2_dfbeta)</span>
-<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>Table2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(t2, <span class="fu">round</span>((t2[, <span class="dv">2</span>] <span class="sc">-</span> t2[, <span class="dv">1</span>]) <span class="sc">/</span> t2[, <span class="dv">1</span>] <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>))</span>
-<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>Table2[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">round</span>(Table2[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">4</span>)</span>
-<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(Table2)[[<span class="dv">2</span>]][<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Relative difference&quot;</span></span>
-<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>Table2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Table2[<span class="dv">1</span>,], <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,], <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>,],</span>
-<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">10</span>,])</span>
-<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(Table2)[[<span class="dv">1</span>]][<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">12</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Global shrinkage&quot;</span>,</span>
-<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Parameterwise shrinkage&quot;</span>, <span class="st">&quot;Joint shrinkage&quot;</span>, <span class="st">&quot;loc&quot;</span>, <span class="st">&quot;Computing time&quot;</span>)</span>
-<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>Table2</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="do">## Table 2</span></span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a>t2_jack <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a>             pwsf<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a>             <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" tabindex="-1"></a>                    <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a>             <span class="fu">system.time</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>))[<span class="dv">1</span>])</span>
+<span id="cb56-7"><a href="#cb56-7" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" tabindex="-1"></a>t2_dfbeta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-9"><a href="#cb56-9" tabindex="-1"></a>               <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>)<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-10"><a href="#cb56-10" tabindex="-1"></a>               <span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>,</span>
+<span id="cb56-11"><a href="#cb56-11" tabindex="-1"></a>                      <span class="at">join =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;locdistal&quot;</span>, <span class="st">&quot;locproximal&quot;</span>)))<span class="sc">$</span>ShrinkageFactors,</span>
+<span id="cb56-12"><a href="#cb56-12" tabindex="-1"></a>               <span class="fu">system.time</span>(<span class="fu">shrink</span>(fitd, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;dfbeta&quot;</span>))[<span class="dv">1</span>])</span>
+<span id="cb56-13"><a href="#cb56-13" tabindex="-1"></a></span>
+<span id="cb56-14"><a href="#cb56-14" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">Jackknife =</span> t2_jack, <span class="at">DFBETA =</span> t2_dfbeta)</span>
+<span id="cb56-15"><a href="#cb56-15" tabindex="-1"></a></span>
+<span id="cb56-16"><a href="#cb56-16" tabindex="-1"></a>Table2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(t2, <span class="fu">round</span>((t2[, <span class="dv">2</span>] <span class="sc">-</span> t2[, <span class="dv">1</span>]) <span class="sc">/</span> t2[, <span class="dv">1</span>] <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>))</span>
+<span id="cb56-17"><a href="#cb56-17" tabindex="-1"></a>Table2[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">round</span>(Table2[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">4</span>)</span>
+<span id="cb56-18"><a href="#cb56-18" tabindex="-1"></a><span class="fu">dimnames</span>(Table2)[[<span class="dv">2</span>]][<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Relative difference&quot;</span></span>
+<span id="cb56-19"><a href="#cb56-19" tabindex="-1"></a>Table2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Table2[<span class="dv">1</span>,], <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,], <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>,],</span>
+<span id="cb56-20"><a href="#cb56-20" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>), Table2[<span class="dv">10</span>,])</span>
+<span id="cb56-21"><a href="#cb56-21" tabindex="-1"></a><span class="fu">dimnames</span>(Table2)[[<span class="dv">1</span>]][<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">12</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Global shrinkage&quot;</span>,</span>
+<span id="cb56-22"><a href="#cb56-22" tabindex="-1"></a>          <span class="st">&quot;Parameterwise shrinkage&quot;</span>, <span class="st">&quot;Joint shrinkage&quot;</span>, <span class="st">&quot;loc&quot;</span>, <span class="st">&quot;Computing time&quot;</span>)</span>
+<span id="cb56-23"><a href="#cb56-23" tabindex="-1"></a>Table2</span></code></pre></div>
 <pre><code>##                         Jackknife DFBETA Relative difference
 ## Global shrinkage           0.8076 0.8123                 0.6
 ## Parameterwise shrinkage        NA     NA                  NA
@@ -642,124 +835,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sexmale                    0.8364 0.8386                 0.3
 ## loc                        0.8055 0.8111                 0.7
 ##                                NA     NA                  NA
-## Computing time             0.7100 0.0100               -98.6</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># max. difference</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">abs</span>(Table2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>] <span class="sc">-</span> Table2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">2</span>]), <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+## Computing time             0.5600 0.0100               -98.2</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="co"># max. difference</span></span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">abs</span>(Table2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>] <span class="sc">-</span> Table2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">2</span>]), <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.0149</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Figure 1: Data simulated from deep vein thrombosis study: Comparison of Jackknife and</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="do">##           DFBETA-approximated global shrinkage factors for selected and unselected</span></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="do">##           models.</span></span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>deepvein0 <span class="ot">&lt;-</span> <span class="fu">subset</span>(deepvein, status <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>deepvein1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(deepvein, status <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>n0 <span class="ot">&lt;-</span> <span class="fu">nrow</span>(deepvein0)</span>
-<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">nrow</span>(deepvein1)</span>
-<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> <span class="fl">0.2</span>                                     <span class="co"># based on n1 / n0</span></span>
-<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Note: Running this code is time-consuming, since 2 * B * S data sets are analyzed.</span></span>
-<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a><span class="do">## size &lt;- seq(from = 200, to = 2000, length.out = 19)      # based on nrow(deepvein)</span></span>
-<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a><span class="co"># B &lt;- 100</span></span>
-<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a><span class="do">## You may want to reduce B and length.out of size: e.g.</span></span>
-<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a><span class="do">## size &lt;- seq(from = 200, to = 2000, length.out = 4)</span></span>
-<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a><span class="do">## B &lt;- 3</span></span>
-<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a><span class="co"># S &lt;- length(size)</span></span>
-<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a><span class="co"># shrinkGJ &lt;- shrinkGD &lt;- shrinkGJsel &lt;- shrinkGDsel &lt;- matrix(NA, nrow = B, ncol = S)</span></span>
-<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(954681)</span></span>
-<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a><span class="co"># for (s in 1:S) {</span></span>
-<span id="cb60-25"><a href="#cb60-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   cat(&quot;\n&quot;, s)</span></span>
-<span id="cb60-26"><a href="#cb60-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   for (b in 1:B) {</span></span>
-<span id="cb60-27"><a href="#cb60-27" aria-hidden="true" tabindex="-1"></a><span class="co">#     cat(&quot;.&quot;)</span></span>
-<span id="cb60-28"><a href="#cb60-28" aria-hidden="true" tabindex="-1"></a><span class="co">#     data &lt;- rbind(deepvein0[sample(x = 1:n0, size = size[s]*(1-ratio), replace = TRUE),],</span></span>
-<span id="cb60-29"><a href="#cb60-29" aria-hidden="true" tabindex="-1"></a><span class="co">#                   deepvein1[sample(x = 1:n1, size = size[s]*ratio, replace = TRUE),])</span></span>
-<span id="cb60-30"><a href="#cb60-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
-<span id="cb60-31"><a href="#cb60-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     fitfull &lt;- coxph(Surv(time, status) ~ log2ddim + bmi + durther + age + sex + loc +</span></span>
-<span id="cb60-32"><a href="#cb60-32" aria-hidden="true" tabindex="-1"></a><span class="co">#                        fiimut + fvleid, data = data, x = TRUE)</span></span>
-<span id="cb60-33"><a href="#cb60-33" aria-hidden="true" tabindex="-1"></a><span class="co">#     fitsel &lt;- step(fitfull, direction = &quot;backward&quot;, trace = 0)</span></span>
-<span id="cb60-34"><a href="#cb60-34" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
-<span id="cb60-35"><a href="#cb60-35" aria-hidden="true" tabindex="-1"></a><span class="co">#     if (!is.null(fitsel$coefficients)) {                     # no null model selected</span></span>
-<span id="cb60-36"><a href="#cb60-36" aria-hidden="true" tabindex="-1"></a><span class="co">#       shrinkGJsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span></span>
-<span id="cb60-37"><a href="#cb60-37" aria-hidden="true" tabindex="-1"></a><span class="co">#       shrinkGDsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span></span>
-<span id="cb60-38"><a href="#cb60-38" aria-hidden="true" tabindex="-1"></a><span class="co">#     }</span></span>
-<span id="cb60-39"><a href="#cb60-39" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
-<span id="cb60-40"><a href="#cb60-40" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
-<span id="cb60-41"><a href="#cb60-41" aria-hidden="true" tabindex="-1"></a><span class="co">#     fit &lt;- coxph(Surv(time, status) ~ log2ddim + sex + loc, data = data, x = TRUE)</span></span>
-<span id="cb60-42"><a href="#cb60-42" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
-<span id="cb60-43"><a href="#cb60-43" aria-hidden="true" tabindex="-1"></a><span class="co">#     shrinkGJ[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span></span>
-<span id="cb60-44"><a href="#cb60-44" aria-hidden="true" tabindex="-1"></a><span class="co">#     shrinkGD[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span></span>
-<span id="cb60-45"><a href="#cb60-45" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
-<span id="cb60-46"><a href="#cb60-46" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span>
-<span id="cb60-47"><a href="#cb60-47" aria-hidden="true" tabindex="-1"></a><span class="do">## In some smaller data sets (and especially when shrinkage factors are estimated with the</span></span>
-<span id="cb60-48"><a href="#cb60-48" aria-hidden="true" tabindex="-1"></a><span class="do">## Jackknife method) there might be issues with convergence in individual data sets.</span></span>
-<span id="cb60-49"><a href="#cb60-49" aria-hidden="true" tabindex="-1"></a><span class="do">## However, coxph will issue a warning.</span></span>
-<span id="cb60-50"><a href="#cb60-50" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-51"><a href="#cb60-51" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-52"><a href="#cb60-52" aria-hidden="true" tabindex="-1"></a><span class="co"># shrinkGDselm &lt;- apply(shrinkGDsel, 2, median)</span></span>
-<span id="cb60-53"><a href="#cb60-53" aria-hidden="true" tabindex="-1"></a><span class="co"># shrinkGJselm &lt;- apply(shrinkGJsel, 2, median)</span></span>
-<span id="cb60-54"><a href="#cb60-54" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-55"><a href="#cb60-55" aria-hidden="true" tabindex="-1"></a><span class="co"># cbind(n = size, Diff_J_D_sel = shrinkGJselm - shrinkGDselm)</span></span>
-<span id="cb60-56"><a href="#cb60-56" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-57"><a href="#cb60-57" aria-hidden="true" tabindex="-1"></a><span class="co"># shrinkGDm &lt;- apply(shrinkGD, 2, median)</span></span>
-<span id="cb60-58"><a href="#cb60-58" aria-hidden="true" tabindex="-1"></a><span class="co"># shrinkGJm &lt;- apply(shrinkGJ, 2, median)</span></span>
-<span id="cb60-59"><a href="#cb60-59" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-60"><a href="#cb60-60" aria-hidden="true" tabindex="-1"></a><span class="co"># cbind(n = size, Diff_J_D = shrinkGJm - shrinkGDm)</span></span>
-<span id="cb60-61"><a href="#cb60-61" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-62"><a href="#cb60-62" aria-hidden="true" tabindex="-1"></a><span class="co"># xrange &lt;- c(0.5, 1)</span></span>
-<span id="cb60-63"><a href="#cb60-63" aria-hidden="true" tabindex="-1"></a><span class="do">## xrange &lt;- range(shrinkGDselm, shrinkGJselm, shrinkGDm, shrinkGJm)</span></span>
-<span id="cb60-64"><a href="#cb60-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-65"><a href="#cb60-65" aria-hidden="true" tabindex="-1"></a><span class="do">## pdf(&quot;compJvsD.pdf&quot;, width = 6, height = 4)</span></span>
-<span id="cb60-66"><a href="#cb60-66" aria-hidden="true" tabindex="-1"></a><span class="co"># par(oma = c(0, 0, 0.5, 0.5), mar = c(3.5, 4, 0, 0))</span></span>
-<span id="cb60-67"><a href="#cb60-67" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(range(size), xrange, type = &quot;n&quot;, las = 1, xlab = &quot;&quot;, ylab = &quot;&quot;, xaxt = &quot;n&quot;)</span></span>
-<span id="cb60-68"><a href="#cb60-68" aria-hidden="true" tabindex="-1"></a><span class="co"># axis(1, at = size)</span></span>
-<span id="cb60-69"><a href="#cb60-69" aria-hidden="true" tabindex="-1"></a><span class="co"># mtext(side = 1, text = &quot;Sample size&quot;, line = 2.3)</span></span>
-<span id="cb60-70"><a href="#cb60-70" aria-hidden="true" tabindex="-1"></a><span class="co"># mtext(side = 2, text = &quot;Global shrinkage factor&quot;, line = 2.8)</span></span>
-<span id="cb60-71"><a href="#cb60-71" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-72"><a href="#cb60-72" aria-hidden="true" tabindex="-1"></a><span class="co"># points(size, shrinkGDselm, pch = 3, col = &quot;darkolivegreen4&quot;, cex = 1.5)</span></span>
-<span id="cb60-73"><a href="#cb60-73" aria-hidden="true" tabindex="-1"></a><span class="co"># points(size, shrinkGJselm, pch = 1, col = &quot;darkgoldenrod3&quot;, cex = 1.3)</span></span>
-<span id="cb60-74"><a href="#cb60-74" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(size, shrinkGDselm, lty = 2, col = &quot;darkolivegreen4&quot;, lwd = 2)</span></span>
-<span id="cb60-75"><a href="#cb60-75" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(size, shrinkGJselm, lty = 3, col = &quot;darkgoldenrod3&quot;, lwd = 2)</span></span>
-<span id="cb60-76"><a href="#cb60-76" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-77"><a href="#cb60-77" aria-hidden="true" tabindex="-1"></a><span class="co"># points(size, shrinkGDm, pch = 3, col = &quot;firebrick3&quot;, cex = 1.5)</span></span>
-<span id="cb60-78"><a href="#cb60-78" aria-hidden="true" tabindex="-1"></a><span class="co"># points(size, shrinkGJm, pch = 1, col = &quot;dodgerblue3&quot;, cex = 1.3)</span></span>
-<span id="cb60-79"><a href="#cb60-79" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(size, shrinkGDm, lty = 2, col = &quot;firebrick3&quot;, lwd = 2)</span></span>
-<span id="cb60-80"><a href="#cb60-80" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(size, shrinkGJm, lty = 3, col = &quot;dodgerblue3&quot;, lwd = 2)</span></span>
-<span id="cb60-81"><a href="#cb60-81" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-82"><a href="#cb60-82" aria-hidden="true" tabindex="-1"></a><span class="co"># legend(x = 1600, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;unselected&quot;,</span></span>
-<span id="cb60-83"><a href="#cb60-83" aria-hidden="true" tabindex="-1"></a><span class="co">#        col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span></span>
-<span id="cb60-84"><a href="#cb60-84" aria-hidden="true" tabindex="-1"></a><span class="co">#        text.col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), title.col = &quot;black&quot;)</span></span>
-<span id="cb60-85"><a href="#cb60-85" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb60-86"><a href="#cb60-86" aria-hidden="true" tabindex="-1"></a><span class="co"># legend(x = 1000, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;selected&quot;,</span></span>
-<span id="cb60-87"><a href="#cb60-87" aria-hidden="true" tabindex="-1"></a><span class="co">#        col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span></span>
-<span id="cb60-88"><a href="#cb60-88" aria-hidden="true" tabindex="-1"></a><span class="co">#        text.col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), title.col = &quot;black&quot;)</span></span>
-<span id="cb60-89"><a href="#cb60-89" aria-hidden="true" tabindex="-1"></a><span class="do">## dev.off()</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="do">## Figure 1: Data simulated from deep vein thrombosis study: Comparison of Jackknife and</span></span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="do">##           DFBETA-approximated global shrinkage factors for selected and unselected</span></span>
+<span id="cb60-3"><a href="#cb60-3" tabindex="-1"></a><span class="do">##           models.</span></span>
+<span id="cb60-4"><a href="#cb60-4" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" tabindex="-1"></a>deepvein0 <span class="ot">&lt;-</span> <span class="fu">subset</span>(deepvein, status <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb60-6"><a href="#cb60-6" tabindex="-1"></a>deepvein1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(deepvein, status <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb60-7"><a href="#cb60-7" tabindex="-1"></a></span>
+<span id="cb60-8"><a href="#cb60-8" tabindex="-1"></a>n0 <span class="ot">&lt;-</span> <span class="fu">nrow</span>(deepvein0)</span>
+<span id="cb60-9"><a href="#cb60-9" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">nrow</span>(deepvein1)</span>
+<span id="cb60-10"><a href="#cb60-10" tabindex="-1"></a></span>
+<span id="cb60-11"><a href="#cb60-11" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> <span class="fl">0.2</span>                                     <span class="co"># based on n1 / n0</span></span>
+<span id="cb60-12"><a href="#cb60-12" tabindex="-1"></a><span class="do">## Note: Running this code is time-consuming, since 2 * B * S data sets are analyzed.</span></span>
+<span id="cb60-13"><a href="#cb60-13" tabindex="-1"></a><span class="do">## size &lt;- seq(from = 200, to = 2000, length.out = 19)      # based on nrow(deepvein)</span></span>
+<span id="cb60-14"><a href="#cb60-14" tabindex="-1"></a><span class="co"># B &lt;- 100</span></span>
+<span id="cb60-15"><a href="#cb60-15" tabindex="-1"></a><span class="do">## You may want to reduce B and length.out of size: e.g.</span></span>
+<span id="cb60-16"><a href="#cb60-16" tabindex="-1"></a><span class="do">## size &lt;- seq(from = 200, to = 2000, length.out = 4)</span></span>
+<span id="cb60-17"><a href="#cb60-17" tabindex="-1"></a><span class="do">## B &lt;- 3</span></span>
+<span id="cb60-18"><a href="#cb60-18" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb60-19"><a href="#cb60-19" tabindex="-1"></a><span class="co"># S &lt;- length(size)</span></span>
+<span id="cb60-20"><a href="#cb60-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-21"><a href="#cb60-21" tabindex="-1"></a><span class="co"># shrinkGJ &lt;- shrinkGD &lt;- shrinkGJsel &lt;- shrinkGDsel &lt;- matrix(NA, nrow = B, ncol = S)</span></span>
+<span id="cb60-22"><a href="#cb60-22" tabindex="-1"></a><span class="co"># set.seed(954681)</span></span>
+<span id="cb60-23"><a href="#cb60-23" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-24"><a href="#cb60-24" tabindex="-1"></a><span class="co"># for (s in 1:S) {</span></span>
+<span id="cb60-25"><a href="#cb60-25" tabindex="-1"></a><span class="co">#   cat(&quot;\n&quot;, s)</span></span>
+<span id="cb60-26"><a href="#cb60-26" tabindex="-1"></a><span class="co">#   for (b in 1:B) {</span></span>
+<span id="cb60-27"><a href="#cb60-27" tabindex="-1"></a><span class="co">#     cat(&quot;.&quot;)</span></span>
+<span id="cb60-28"><a href="#cb60-28" tabindex="-1"></a><span class="co">#     data &lt;- rbind(deepvein0[sample(x = 1:n0, size = size[s]*(1-ratio), replace = TRUE),],</span></span>
+<span id="cb60-29"><a href="#cb60-29" tabindex="-1"></a><span class="co">#                   deepvein1[sample(x = 1:n1, size = size[s]*ratio, replace = TRUE),])</span></span>
+<span id="cb60-30"><a href="#cb60-30" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb60-31"><a href="#cb60-31" tabindex="-1"></a><span class="co">#     fitfull &lt;- coxph(Surv(time, status) ~ log2ddim + bmi + durther + age + sex + loc +</span></span>
+<span id="cb60-32"><a href="#cb60-32" tabindex="-1"></a><span class="co">#                        fiimut + fvleid, data = data, x = TRUE)</span></span>
+<span id="cb60-33"><a href="#cb60-33" tabindex="-1"></a><span class="co">#     fitsel &lt;- step(fitfull, direction = &quot;backward&quot;, trace = 0)</span></span>
+<span id="cb60-34"><a href="#cb60-34" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb60-35"><a href="#cb60-35" tabindex="-1"></a><span class="co">#     if (!is.null(fitsel$coefficients)) {                     # no null model selected</span></span>
+<span id="cb60-36"><a href="#cb60-36" tabindex="-1"></a><span class="co">#       shrinkGJsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span></span>
+<span id="cb60-37"><a href="#cb60-37" tabindex="-1"></a><span class="co">#       shrinkGDsel[b, s] &lt;- shrink(fitsel, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span></span>
+<span id="cb60-38"><a href="#cb60-38" tabindex="-1"></a><span class="co">#     }</span></span>
+<span id="cb60-39"><a href="#cb60-39" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb60-40"><a href="#cb60-40" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb60-41"><a href="#cb60-41" tabindex="-1"></a><span class="co">#     fit &lt;- coxph(Surv(time, status) ~ log2ddim + sex + loc, data = data, x = TRUE)</span></span>
+<span id="cb60-42"><a href="#cb60-42" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb60-43"><a href="#cb60-43" tabindex="-1"></a><span class="co">#     shrinkGJ[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;jackknife&quot;)$ShrinkageFactors</span></span>
+<span id="cb60-44"><a href="#cb60-44" tabindex="-1"></a><span class="co">#     shrinkGD[b, s] &lt;- shrink(fit, type = &quot;global&quot;, method = &quot;dfbeta&quot;)$ShrinkageFactors</span></span>
+<span id="cb60-45"><a href="#cb60-45" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb60-46"><a href="#cb60-46" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb60-47"><a href="#cb60-47" tabindex="-1"></a><span class="do">## In some smaller data sets (and especially when shrinkage factors are estimated with the</span></span>
+<span id="cb60-48"><a href="#cb60-48" tabindex="-1"></a><span class="do">## Jackknife method) there might be issues with convergence in individual data sets.</span></span>
+<span id="cb60-49"><a href="#cb60-49" tabindex="-1"></a><span class="do">## However, coxph will issue a warning.</span></span>
+<span id="cb60-50"><a href="#cb60-50" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-51"><a href="#cb60-51" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-52"><a href="#cb60-52" tabindex="-1"></a><span class="co"># shrinkGDselm &lt;- apply(shrinkGDsel, 2, median)</span></span>
+<span id="cb60-53"><a href="#cb60-53" tabindex="-1"></a><span class="co"># shrinkGJselm &lt;- apply(shrinkGJsel, 2, median)</span></span>
+<span id="cb60-54"><a href="#cb60-54" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-55"><a href="#cb60-55" tabindex="-1"></a><span class="co"># cbind(n = size, Diff_J_D_sel = shrinkGJselm - shrinkGDselm)</span></span>
+<span id="cb60-56"><a href="#cb60-56" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-57"><a href="#cb60-57" tabindex="-1"></a><span class="co"># shrinkGDm &lt;- apply(shrinkGD, 2, median)</span></span>
+<span id="cb60-58"><a href="#cb60-58" tabindex="-1"></a><span class="co"># shrinkGJm &lt;- apply(shrinkGJ, 2, median)</span></span>
+<span id="cb60-59"><a href="#cb60-59" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-60"><a href="#cb60-60" tabindex="-1"></a><span class="co"># cbind(n = size, Diff_J_D = shrinkGJm - shrinkGDm)</span></span>
+<span id="cb60-61"><a href="#cb60-61" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-62"><a href="#cb60-62" tabindex="-1"></a><span class="co"># xrange &lt;- c(0.5, 1)</span></span>
+<span id="cb60-63"><a href="#cb60-63" tabindex="-1"></a><span class="do">## xrange &lt;- range(shrinkGDselm, shrinkGJselm, shrinkGDm, shrinkGJm)</span></span>
+<span id="cb60-64"><a href="#cb60-64" tabindex="-1"></a></span>
+<span id="cb60-65"><a href="#cb60-65" tabindex="-1"></a><span class="do">## pdf(&quot;compJvsD.pdf&quot;, width = 6, height = 4)</span></span>
+<span id="cb60-66"><a href="#cb60-66" tabindex="-1"></a><span class="co"># par(oma = c(0, 0, 0.5, 0.5), mar = c(3.5, 4, 0, 0))</span></span>
+<span id="cb60-67"><a href="#cb60-67" tabindex="-1"></a><span class="co"># plot(range(size), xrange, type = &quot;n&quot;, las = 1, xlab = &quot;&quot;, ylab = &quot;&quot;, xaxt = &quot;n&quot;)</span></span>
+<span id="cb60-68"><a href="#cb60-68" tabindex="-1"></a><span class="co"># axis(1, at = size)</span></span>
+<span id="cb60-69"><a href="#cb60-69" tabindex="-1"></a><span class="co"># mtext(side = 1, text = &quot;Sample size&quot;, line = 2.3)</span></span>
+<span id="cb60-70"><a href="#cb60-70" tabindex="-1"></a><span class="co"># mtext(side = 2, text = &quot;Global shrinkage factor&quot;, line = 2.8)</span></span>
+<span id="cb60-71"><a href="#cb60-71" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-72"><a href="#cb60-72" tabindex="-1"></a><span class="co"># points(size, shrinkGDselm, pch = 3, col = &quot;darkolivegreen4&quot;, cex = 1.5)</span></span>
+<span id="cb60-73"><a href="#cb60-73" tabindex="-1"></a><span class="co"># points(size, shrinkGJselm, pch = 1, col = &quot;darkgoldenrod3&quot;, cex = 1.3)</span></span>
+<span id="cb60-74"><a href="#cb60-74" tabindex="-1"></a><span class="co"># lines(size, shrinkGDselm, lty = 2, col = &quot;darkolivegreen4&quot;, lwd = 2)</span></span>
+<span id="cb60-75"><a href="#cb60-75" tabindex="-1"></a><span class="co"># lines(size, shrinkGJselm, lty = 3, col = &quot;darkgoldenrod3&quot;, lwd = 2)</span></span>
+<span id="cb60-76"><a href="#cb60-76" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-77"><a href="#cb60-77" tabindex="-1"></a><span class="co"># points(size, shrinkGDm, pch = 3, col = &quot;firebrick3&quot;, cex = 1.5)</span></span>
+<span id="cb60-78"><a href="#cb60-78" tabindex="-1"></a><span class="co"># points(size, shrinkGJm, pch = 1, col = &quot;dodgerblue3&quot;, cex = 1.3)</span></span>
+<span id="cb60-79"><a href="#cb60-79" tabindex="-1"></a><span class="co"># lines(size, shrinkGDm, lty = 2, col = &quot;firebrick3&quot;, lwd = 2)</span></span>
+<span id="cb60-80"><a href="#cb60-80" tabindex="-1"></a><span class="co"># lines(size, shrinkGJm, lty = 3, col = &quot;dodgerblue3&quot;, lwd = 2)</span></span>
+<span id="cb60-81"><a href="#cb60-81" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-82"><a href="#cb60-82" tabindex="-1"></a><span class="co"># legend(x = 1600, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;unselected&quot;,</span></span>
+<span id="cb60-83"><a href="#cb60-83" tabindex="-1"></a><span class="co">#        col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span></span>
+<span id="cb60-84"><a href="#cb60-84" tabindex="-1"></a><span class="co">#        text.col = c(&quot;dodgerblue3&quot;, &quot;firebrick3&quot;), title.col = &quot;black&quot;)</span></span>
+<span id="cb60-85"><a href="#cb60-85" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-86"><a href="#cb60-86" tabindex="-1"></a><span class="co"># legend(x = 1000, y = 0.62, legend = c(&quot;Jackknife&quot;, &quot;DFBETA&quot;), lwd = 2, title = &quot;selected&quot;,</span></span>
+<span id="cb60-87"><a href="#cb60-87" tabindex="-1"></a><span class="co">#        col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), inset = 0.05, bty = &quot;n&quot;, pch = c(1, 3),</span></span>
+<span id="cb60-88"><a href="#cb60-88" tabindex="-1"></a><span class="co">#        text.col = c(&quot;darkgoldenrod3&quot;, &quot;chartreuse4&quot;), title.col = &quot;black&quot;)</span></span>
+<span id="cb60-89"><a href="#cb60-89" tabindex="-1"></a><span class="do">## dev.off()</span></span></code></pre></div>
 </div>
 <div id="section-5.2-breast-cancer-study" class="section level2">
 <h2>Section 5.2: Breast Cancer Study</h2>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Section 5.2: Breast Cancer Study</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="do">## define predictors as suggested by Sauerbrei (1999, Applied Statistics)</span></span>
-<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>GBSG<span class="sc">$</span>enodes <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.12</span><span class="sc">*</span>GBSG<span class="sc">$</span>posnodal)</span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create ordinal dummy-coded variable tumgrad for grades 1 to 3</span></span>
-<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad) <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;tumgrad1&quot;</span>, <span class="st">&quot;tumgrad2&quot;</span>)))</span>
-<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="do">## Section 5.2: Breast Cancer Study</span></span>
+<span id="cb61-2"><a href="#cb61-2" tabindex="-1"></a><span class="do">## define predictors as suggested by Sauerbrei (1999, Applied Statistics)</span></span>
+<span id="cb61-3"><a href="#cb61-3" tabindex="-1"></a>GBSG<span class="sc">$</span>enodes <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.12</span><span class="sc">*</span>GBSG<span class="sc">$</span>posnodal)</span>
+<span id="cb61-4"><a href="#cb61-4" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="#cb61-6" tabindex="-1"></a><span class="co"># create ordinal dummy-coded variable tumgrad for grades 1 to 3</span></span>
+<span id="cb61-7"><a href="#cb61-7" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad) <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb61-8"><a href="#cb61-8" tabindex="-1"></a>                                  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;tumgrad1&quot;</span>, <span class="st">&quot;tumgrad2&quot;</span>)))</span>
+<span id="cb61-9"><a href="#cb61-9" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad)</span></code></pre></div>
 <pre><code>##   tumgrad1 tumgrad2
 ## 1        0        0
 ## 2        1        0
 ## 3        1        1</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for nicer variable names use default dimnames</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad) <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # model selection (backward elimination) and estimation</span></span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>fitg <span class="ot">&lt;-</span> <span class="fu">mfp</span>(<span class="fu">Surv</span>(rfst, cens) <span class="sc">~</span> <span class="fu">fp</span>(age) <span class="sc">+</span> <span class="fu">fp</span>(prm) <span class="sc">+</span> <span class="fu">fp</span>(esm) <span class="sc">+</span> <span class="fu">fp</span>(tumsize) <span class="sc">+</span></span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">fp</span>(enodes) <span class="sc">+</span> tumgrad <span class="sc">+</span> menostat <span class="sc">+</span> <span class="fu">strata</span>(htreat),</span>
-<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> cox, <span class="at">data =</span> GBSG, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">select =</span> <span class="fl">0.05</span>)</span>
-<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fitg)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="co"># for nicer variable names use default dimnames</span></span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a><span class="fu">contrasts</span>(GBSG<span class="sc">$</span>tumgrad) <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="#cb63-5" tabindex="-1"></a><span class="do">## # model selection (backward elimination) and estimation</span></span>
+<span id="cb63-6"><a href="#cb63-6" tabindex="-1"></a>fitg <span class="ot">&lt;-</span> <span class="fu">mfp</span>(<span class="fu">Surv</span>(rfst, cens) <span class="sc">~</span> <span class="fu">fp</span>(age) <span class="sc">+</span> <span class="fu">fp</span>(prm) <span class="sc">+</span> <span class="fu">fp</span>(esm) <span class="sc">+</span> <span class="fu">fp</span>(tumsize) <span class="sc">+</span></span>
+<span id="cb63-7"><a href="#cb63-7" tabindex="-1"></a>              <span class="fu">fp</span>(enodes) <span class="sc">+</span> tumgrad <span class="sc">+</span> menostat <span class="sc">+</span> <span class="fu">strata</span>(htreat),</span>
+<span id="cb63-8"><a href="#cb63-8" tabindex="-1"></a>            <span class="at">family =</span> cox, <span class="at">data =</span> GBSG, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">select =</span> <span class="fl">0.05</span>)</span>
+<span id="cb63-9"><a href="#cb63-9" tabindex="-1"></a><span class="fu">print</span>(fitg)</span></code></pre></div>
 <pre><code>## Call:
 ## mfp(formula = Surv(rfst, cens) ~ fp(age) + fp(prm) + fp(esm) + 
 ##     fp(tumsize) + fp(enodes) + tumgrad + menostat + strata(htreat), 
@@ -794,9 +987,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## tumgrad                          tumgrad
 ## menostat                            &lt;NA&gt;
 ## 
-## Re-Scaling:
-## Non-positive values in some of the covariates. No re-scaling was performed.
-## 
 ##               coef exp(coef) se(coef)      z        p
 ## enodes.1   -1.9782   0.13832   0.2272 -8.706 0.00e+00
 ## prm.1      -0.5717   0.56456   0.1109 -5.154 2.55e-07
@@ -805,32 +995,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## age.2      -2.6539   0.07037   0.5902 -4.496 6.91e-06
 ## 
 ## Likelihood ratio test=142  on 5 df, p=0 n= 686</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Table 3</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="do">## (p-values unconditional on the selected degree and power for prm, age, and</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="do">## enodes = fitg$pvalues)</span></span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>varorder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>, <span class="st">&quot;prm.1&quot;</span>, <span class="st">&quot;enodes.1&quot;</span>, <span class="st">&quot;tumgrad1.1&quot;</span>)</span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>t3_beta_j <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">round</span>(fitg<span class="sc">$</span>coefficients, <span class="dv">3</span>)[varorder])</span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>t3_df <span class="ot">&lt;-</span> <span class="fu">c</span>(fitg<span class="sc">$</span>df.initial[<span class="dv">7</span>, ], <span class="cn">NA</span>, <span class="cn">NA</span>, fitg<span class="sc">$</span>df.initial[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), ])</span>
-<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>t3_p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">round</span>(fitg<span class="sc">$</span>pvalues[<span class="dv">7</span>, <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>), <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
-<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">round</span>(fitg<span class="sc">$</span>pvalues[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>))</span>
-<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>t3_pwsf0 <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>t3_pwsf <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="cn">NA</span>, t3_pwsf0<span class="sc">$</span>ShrinkageFactors[varorder]), <span class="dv">3</span>)</span>
-<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>t3_pwsfse <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_pwsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[varorder]), <span class="dv">3</span>)</span>
-<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>t3_jointsf0 <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
-<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
-<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>t3_jointsf <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactors[varorder[<span class="dv">1</span>]], <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
-<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>                      t3_jointsf0<span class="sc">$</span>ShrinkageFactors[varorder[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]]), <span class="dv">3</span>)</span>
-<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a>t3_jointsfse <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[<span class="st">&quot;join.age.1&quot;</span>],</span>
-<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>                        <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
-<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[varorder[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]]), <span class="dv">3</span>)</span>
-<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>Table3 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="st">&quot;beta_j&quot;</span> <span class="ot">=</span> t3_beta_j, <span class="st">&quot;df&quot;</span> <span class="ot">=</span> t3_df, <span class="st">&quot;p value&quot;</span> <span class="ot">=</span> t3_p,</span>
-<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;PWSF&quot;</span> <span class="ot">=</span> t3_pwsf, <span class="st">&quot;PWSF SE&quot;</span> <span class="ot">=</span> t3_pwsfse,</span>
-<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Joint shrinkage&quot;</span> <span class="ot">=</span> t3_jointsf,</span>
-<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Joint shrinkage SE&quot;</span> <span class="ot">=</span> t3_jointsfse)</span>
-<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(Table3)[[<span class="dv">1</span>]][<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;age&quot;</span></span>
-<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a>Table3</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="do">## Table 3</span></span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a><span class="do">## (p-values unconditional on the selected degree and power for prm, age, and</span></span>
+<span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a><span class="do">## enodes = fitg$pvalues)</span></span>
+<span id="cb65-4"><a href="#cb65-4" tabindex="-1"></a>varorder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>, <span class="st">&quot;prm.1&quot;</span>, <span class="st">&quot;enodes.1&quot;</span>, <span class="st">&quot;tumgrad1.1&quot;</span>)</span>
+<span id="cb65-5"><a href="#cb65-5" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" tabindex="-1"></a>t3_beta_j <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">round</span>(fitg<span class="sc">$</span>coefficients, <span class="dv">3</span>)[varorder])</span>
+<span id="cb65-7"><a href="#cb65-7" tabindex="-1"></a>t3_df <span class="ot">&lt;-</span> <span class="fu">c</span>(fitg<span class="sc">$</span>df.initial[<span class="dv">7</span>, ], <span class="cn">NA</span>, <span class="cn">NA</span>, fitg<span class="sc">$</span>df.initial[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), ])</span>
+<span id="cb65-8"><a href="#cb65-8" tabindex="-1"></a>t3_p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">round</span>(fitg<span class="sc">$</span>pvalues[<span class="dv">7</span>, <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>), <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb65-9"><a href="#cb65-9" tabindex="-1"></a>          <span class="fu">round</span>(fitg<span class="sc">$</span>pvalues[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="st">&quot;p.null&quot;</span>], <span class="dv">3</span>))</span>
+<span id="cb65-10"><a href="#cb65-10" tabindex="-1"></a>t3_pwsf0 <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb65-11"><a href="#cb65-11" tabindex="-1"></a>t3_pwsf <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="cn">NA</span>, t3_pwsf0<span class="sc">$</span>ShrinkageFactors[varorder]), <span class="dv">3</span>)</span>
+<span id="cb65-12"><a href="#cb65-12" tabindex="-1"></a>t3_pwsfse <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_pwsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[varorder]), <span class="dv">3</span>)</span>
+<span id="cb65-13"><a href="#cb65-13" tabindex="-1"></a>t3_jointsf0 <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
+<span id="cb65-14"><a href="#cb65-14" tabindex="-1"></a>                      <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
+<span id="cb65-15"><a href="#cb65-15" tabindex="-1"></a>t3_jointsf <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactors[varorder[<span class="dv">1</span>]], <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb65-16"><a href="#cb65-16" tabindex="-1"></a>                      t3_jointsf0<span class="sc">$</span>ShrinkageFactors[varorder[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]]), <span class="dv">3</span>)</span>
+<span id="cb65-17"><a href="#cb65-17" tabindex="-1"></a>t3_jointsfse <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[<span class="st">&quot;join.age.1&quot;</span>],</span>
+<span id="cb65-18"><a href="#cb65-18" tabindex="-1"></a>                        <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb65-19"><a href="#cb65-19" tabindex="-1"></a>                        <span class="fu">sqrt</span>(<span class="fu">diag</span>(t3_jointsf0<span class="sc">$</span>ShrinkageFactorsVCOV))[varorder[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]]), <span class="dv">3</span>)</span>
+<span id="cb65-20"><a href="#cb65-20" tabindex="-1"></a></span>
+<span id="cb65-21"><a href="#cb65-21" tabindex="-1"></a>Table3 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="st">&quot;beta_j&quot;</span> <span class="ot">=</span> t3_beta_j, <span class="st">&quot;df&quot;</span> <span class="ot">=</span> t3_df, <span class="st">&quot;p value&quot;</span> <span class="ot">=</span> t3_p,</span>
+<span id="cb65-22"><a href="#cb65-22" tabindex="-1"></a>                <span class="st">&quot;PWSF&quot;</span> <span class="ot">=</span> t3_pwsf, <span class="st">&quot;PWSF SE&quot;</span> <span class="ot">=</span> t3_pwsfse,</span>
+<span id="cb65-23"><a href="#cb65-23" tabindex="-1"></a>                <span class="st">&quot;Joint shrinkage&quot;</span> <span class="ot">=</span> t3_jointsf,</span>
+<span id="cb65-24"><a href="#cb65-24" tabindex="-1"></a>                <span class="st">&quot;Joint shrinkage SE&quot;</span> <span class="ot">=</span> t3_jointsfse)</span>
+<span id="cb65-25"><a href="#cb65-25" tabindex="-1"></a><span class="fu">dimnames</span>(Table3)[[<span class="dv">1</span>]][<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;age&quot;</span></span>
+<span id="cb65-26"><a href="#cb65-26" tabindex="-1"></a>Table3</span></code></pre></div>
 <pre><code>##            beta_j df p value  PWSF PWSF SE Joint shrinkage Joint shrinkage SE
 ## age            NA  4   0.001    NA      NA           0.876              0.188
 ## age.1       0.606 NA      NA 0.811   0.236              NA                 NA
@@ -838,20 +1028,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## prm.1      -0.572  4   0.000 0.978   0.189           0.982              0.189
 ## enodes.1   -1.978  4   0.000 0.987   0.116           0.986              0.116
 ## tumgrad1.1  0.514  1   0.028 0.811   0.453           0.809              0.452</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="do">## compute shrinkage factors</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>globalsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>globalsf</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="do">## compute shrinkage factors</span></span>
+<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a>globalsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb67-3"><a href="#cb67-3" tabindex="-1"></a>globalsf</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=global, method=jackknife):
 ## [1] 0.9526639
 ## 
 ## Shrunken Regression Coefficients:
 ##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ## -1.8845360 -0.5446421  0.4893540  0.5772861 -2.5282947</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(globalsf<span class="sc">$</span>ShrinkageFactorsVCOV)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="fu">sqrt</span>(globalsf<span class="sc">$</span>ShrinkageFactorsVCOV)</span></code></pre></div>
 <pre><code>##            global
 ## global 0.08062613</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>pwsf</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a>pwsf</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=parameterwise, method=jackknife):
 ##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ##  0.9874769  0.9777288  0.8108045  0.8108243  0.7822610 
@@ -859,19 +1049,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Shrunken Regression Coefficients:
 ##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ## -1.9534020 -0.5589719  0.4164852  0.4913355 -2.0760587</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV)), <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV)), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ##      0.116      0.189      0.453      0.236      0.277</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cov2cor</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV), <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cov2cor</span>(pwsf<span class="sc">$</span>ShrinkageFactorsVCOV), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##            enodes.1  prm.1 tumgrad1.1  age.1  age.2
 ## enodes.1      1.000 -0.055     -0.078  0.030  0.021
 ## prm.1        -0.055  1.000     -0.200  0.026  0.032
 ## tumgrad1.1   -0.078 -0.200      1.000 -0.040 -0.035
 ## age.1         0.030  0.026     -0.040  1.000  0.984
 ## age.2         0.021  0.032     -0.035  0.984  1.000</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>jointsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>jointsf</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>jointsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a>                  <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
+<span id="cb77-3"><a href="#cb77-3" tabindex="-1"></a>jointsf</span></code></pre></div>
 <pre><code>## Shrinkage Factors (type=parameterwise with join option, method=jackknife):
 ##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ##  0.9862779  0.9816686  0.8094979  0.8763299  0.8763299 
@@ -879,76 +1069,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Shrunken Regression Coefficients:
 ##   enodes.1      prm.1 tumgrad1.1      age.1      age.2 
 ## -1.9510302 -0.5612242  0.4158141  0.5310300 -2.3257103</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(jointsf<span class="sc">$</span>ShrinkageFactorsVCOV)), <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(jointsf<span class="sc">$</span>ShrinkageFactorsVCOV)), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## join.age.1   enodes.1      prm.1 tumgrad1.1 
 ##      0.188      0.116      0.189      0.452</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Figure 2: selected model: Log hazard relative to 50 years</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="co"># refit model fitg explicitly including the two dummy variables of</span></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tumgrad</span></span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>GBSG <span class="ot">&lt;-</span> <span class="fu">cbind</span>(GBSG, <span class="fu">model.matrix</span>(<span class="sc">~</span>tumgrad, <span class="at">data =</span> GBSG)[, <span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>fitg <span class="ot">&lt;-</span> <span class="fu">mfp</span>(<span class="fu">Surv</span>(rfst, cens) <span class="sc">~</span> <span class="fu">fp</span>(age) <span class="sc">+</span> <span class="fu">fp</span>(prm) <span class="sc">+</span> <span class="fu">fp</span>(esm) <span class="sc">+</span> <span class="fu">fp</span>(tumsize) <span class="sc">+</span></span>
-<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">fp</span>(enodes) <span class="sc">+</span> tumgrad1 <span class="sc">+</span> tumgrad2 <span class="sc">+</span> menostat <span class="sc">+</span> <span class="fu">strata</span>(htreat),</span>
-<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> cox, <span class="at">data =</span> GBSG, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">select =</span> <span class="fl">0.05</span>)</span>
-<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>globalsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
-<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>jointsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
-<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
-<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a><span class="co"># define new data for which prediction is requested</span></span>
-<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a><span class="co"># newdatref is the new data set for the reference observation</span></span>
-<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">30</span><span class="sc">:</span><span class="dv">75</span></span>
-<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> age, <span class="at">enodes =</span> <span class="dv">1</span>, <span class="at">prm =</span> <span class="dv">1</span>, <span class="at">tumgrad1 =</span> <span class="dv">0</span>,</span>
-<span id="cb81-19"><a href="#cb81-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">htreat =</span> <span class="fu">factor</span>(<span class="dv">1</span>))</span>
-<span id="cb81-20"><a href="#cb81-20" aria-hidden="true" tabindex="-1"></a>newdatref <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">50</span>, <span class="at">enodes =</span> <span class="dv">1</span>, <span class="at">prm =</span> <span class="dv">1</span>, <span class="at">tumgrad1 =</span> <span class="dv">0</span>,</span>
-<span id="cb81-21"><a href="#cb81-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">htreat =</span> <span class="fu">factor</span>(<span class="dv">1</span>))</span>
-<span id="cb81-22"><a href="#cb81-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-23"><a href="#cb81-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-24"><a href="#cb81-24" aria-hidden="true" tabindex="-1"></a>xaxis <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(age), <span class="at">to =</span> <span class="fu">max</span>(age), <span class="at">by =</span> <span class="dv">5</span>)</span>
-<span id="cb81-25"><a href="#cb81-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-26"><a href="#cb81-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-27"><a href="#cb81-27" aria-hidden="true" tabindex="-1"></a><span class="co"># pdf(&quot;plotgbsg.pdf&quot;, width = 6, height = 6)</span></span>
-<span id="cb81-28"><a href="#cb81-28" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">fig =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.3</span>), <span class="at">new =</span> <span class="cn">FALSE</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
-<span id="cb81-29"><a href="#cb81-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb81-30"><a href="#cb81-30" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GBSG<span class="sc">$</span>age[(GBSG<span class="sc">$</span>age <span class="sc">&gt;=</span> <span class="fu">min</span>(age)) <span class="sc">&amp;</span> (GBSG<span class="sc">$</span>age <span class="sc">&lt;=</span> <span class="fu">max</span>(age))],</span>
-<span id="cb81-31"><a href="#cb81-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(age), <span class="at">to =</span> <span class="fu">max</span>(age), <span class="at">by =</span> <span class="fl">2.5</span>), <span class="at">main =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb81-32"><a href="#cb81-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(age), <span class="at">xaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb81-33"><a href="#cb81-33" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">&quot;gray88&quot;</span>)</span>
-<span id="cb81-34"><a href="#cb81-34" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> xaxis)</span>
-<span id="cb81-35"><a href="#cb81-35" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">20</span>), <span class="at">las =</span> <span class="dv">2</span>)</span>
-<span id="cb81-36"><a href="#cb81-36" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">text =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">line =</span> <span class="fl">2.3</span>)</span>
-<span id="cb81-37"><a href="#cb81-37" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">text =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="at">line =</span> <span class="fl">2.8</span>)</span>
-<span id="cb81-38"><a href="#cb81-38" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
-<span id="cb81-39"><a href="#cb81-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-40"><a href="#cb81-40" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">fig =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.3</span>,<span class="dv">1</span>), <span class="at">new =</span> <span class="cn">TRUE</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
-<span id="cb81-41"><a href="#cb81-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb81-42"><a href="#cb81-42" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">range</span>(age), <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="fl">0.8</span>), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>,</span>
-<span id="cb81-43"><a href="#cb81-43" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb81-44"><a href="#cb81-44" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> xaxis, <span class="at">labels =</span> <span class="fu">rep</span>(<span class="st">&quot;&quot;</span>, <span class="at">times =</span> <span class="fu">length</span>(xaxis)))</span>
-<span id="cb81-45"><a href="#cb81-45" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.7</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="at">las =</span> <span class="dv">2</span>,</span>
-<span id="cb81-46"><a href="#cb81-46" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.7</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span>
-<span id="cb81-47"><a href="#cb81-47" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">text =</span> <span class="st">&quot;Log hazard relative to 50 years&quot;</span>, <span class="at">line =</span> <span class="fl">2.8</span>)</span>
-<span id="cb81-48"><a href="#cb81-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(fitg, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
-<span id="cb81-49"><a href="#cb81-49" aria-hidden="true" tabindex="-1"></a>        <span class="fu">predict</span>(fitg, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;gray25&quot;</span>,</span>
-<span id="cb81-50"><a href="#cb81-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb81-51"><a href="#cb81-51" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(globalsf, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
-<span id="cb81-52"><a href="#cb81-52" aria-hidden="true" tabindex="-1"></a>        <span class="fu">predict</span>(globalsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">5</span>,</span>
-<span id="cb81-53"><a href="#cb81-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb81-54"><a href="#cb81-54" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(pwsf, <span class="at">newdata =</span> newdat, <span class="at">type=</span><span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
-<span id="cb81-55"><a href="#cb81-55" aria-hidden="true" tabindex="-1"></a>        <span class="fu">predict</span>(pwsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">2</span>,</span>
-<span id="cb81-56"><a href="#cb81-56" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;dodgerblue3&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb81-57"><a href="#cb81-57" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(jointsf, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
-<span id="cb81-58"><a href="#cb81-58" aria-hidden="true" tabindex="-1"></a>        <span class="fu">predict</span>(jointsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">4</span>,</span>
-<span id="cb81-59"><a href="#cb81-59" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;firebrick3&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb81-60"><a href="#cb81-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-61"><a href="#cb81-61" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="at">inset =</span> <span class="fl">0.02</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>),</span>
-<span id="cb81-62"><a href="#cb81-62" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;SHRINKAGE&quot;</span>,</span>
-<span id="cb81-63"><a href="#cb81-63" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Global&quot;</span>, <span class="st">&quot;Joint&quot;</span>, <span class="st">&quot;Parameterwise&quot;</span>),</span>
-<span id="cb81-64"><a href="#cb81-64" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>), <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb81-65"><a href="#cb81-65" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a><span class="do">## Figure 2: selected model: Log hazard relative to 50 years</span></span>
+<span id="cb81-2"><a href="#cb81-2" tabindex="-1"></a><span class="co"># refit model fitg explicitly including the two dummy variables of</span></span>
+<span id="cb81-3"><a href="#cb81-3" tabindex="-1"></a><span class="co"># tumgrad</span></span>
+<span id="cb81-4"><a href="#cb81-4" tabindex="-1"></a>GBSG <span class="ot">&lt;-</span> <span class="fu">cbind</span>(GBSG, <span class="fu">model.matrix</span>(<span class="sc">~</span>tumgrad, <span class="at">data =</span> GBSG)[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb81-5"><a href="#cb81-5" tabindex="-1"></a></span>
+<span id="cb81-6"><a href="#cb81-6" tabindex="-1"></a>fitg <span class="ot">&lt;-</span> <span class="fu">mfp</span>(<span class="fu">Surv</span>(rfst, cens) <span class="sc">~</span> <span class="fu">fp</span>(age) <span class="sc">+</span> <span class="fu">fp</span>(prm) <span class="sc">+</span> <span class="fu">fp</span>(esm) <span class="sc">+</span> <span class="fu">fp</span>(tumsize) <span class="sc">+</span></span>
+<span id="cb81-7"><a href="#cb81-7" tabindex="-1"></a>              <span class="fu">fp</span>(enodes) <span class="sc">+</span> tumgrad1 <span class="sc">+</span> tumgrad2 <span class="sc">+</span> menostat <span class="sc">+</span> <span class="fu">strata</span>(htreat),</span>
+<span id="cb81-8"><a href="#cb81-8" tabindex="-1"></a>            <span class="at">family =</span> cox, <span class="at">data =</span> GBSG, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">select =</span> <span class="fl">0.05</span>)</span>
+<span id="cb81-9"><a href="#cb81-9" tabindex="-1"></a></span>
+<span id="cb81-10"><a href="#cb81-10" tabindex="-1"></a>globalsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;global&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb81-11"><a href="#cb81-11" tabindex="-1"></a>pwsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>)</span>
+<span id="cb81-12"><a href="#cb81-12" tabindex="-1"></a>jointsf <span class="ot">&lt;-</span> <span class="fu">shrink</span>(fitg, <span class="at">type =</span> <span class="st">&quot;parameterwise&quot;</span>, <span class="at">method =</span> <span class="st">&quot;jackknife&quot;</span>,</span>
+<span id="cb81-13"><a href="#cb81-13" tabindex="-1"></a>                  <span class="at">join=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;age.1&quot;</span>, <span class="st">&quot;age.2&quot;</span>)))</span>
+<span id="cb81-14"><a href="#cb81-14" tabindex="-1"></a></span>
+<span id="cb81-15"><a href="#cb81-15" tabindex="-1"></a><span class="co"># define new data for which prediction is requested</span></span>
+<span id="cb81-16"><a href="#cb81-16" tabindex="-1"></a><span class="co"># newdatref is the new data set for the reference observation</span></span>
+<span id="cb81-17"><a href="#cb81-17" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">30</span><span class="sc">:</span><span class="dv">75</span></span>
+<span id="cb81-18"><a href="#cb81-18" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> age, <span class="at">enodes =</span> <span class="dv">1</span>, <span class="at">prm =</span> <span class="dv">1</span>, <span class="at">tumgrad1 =</span> <span class="dv">0</span>,</span>
+<span id="cb81-19"><a href="#cb81-19" tabindex="-1"></a>                     <span class="at">htreat =</span> <span class="fu">factor</span>(<span class="dv">1</span>))</span>
+<span id="cb81-20"><a href="#cb81-20" tabindex="-1"></a>newdatref <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">50</span>, <span class="at">enodes =</span> <span class="dv">1</span>, <span class="at">prm =</span> <span class="dv">1</span>, <span class="at">tumgrad1 =</span> <span class="dv">0</span>,</span>
+<span id="cb81-21"><a href="#cb81-21" tabindex="-1"></a>                        <span class="at">htreat =</span> <span class="fu">factor</span>(<span class="dv">1</span>))</span>
+<span id="cb81-22"><a href="#cb81-22" tabindex="-1"></a></span>
+<span id="cb81-23"><a href="#cb81-23" tabindex="-1"></a></span>
+<span id="cb81-24"><a href="#cb81-24" tabindex="-1"></a>xaxis <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(age), <span class="at">to =</span> <span class="fu">max</span>(age), <span class="at">by =</span> <span class="dv">5</span>)</span>
+<span id="cb81-25"><a href="#cb81-25" tabindex="-1"></a></span>
+<span id="cb81-26"><a href="#cb81-26" tabindex="-1"></a></span>
+<span id="cb81-27"><a href="#cb81-27" tabindex="-1"></a><span class="co"># pdf(&quot;plotgbsg.pdf&quot;, width = 6, height = 6)</span></span>
+<span id="cb81-28"><a href="#cb81-28" tabindex="-1"></a><span class="fu">par</span>(<span class="at">fig =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.3</span>), <span class="at">new =</span> <span class="cn">FALSE</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb81-29"><a href="#cb81-29" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb81-30"><a href="#cb81-30" tabindex="-1"></a><span class="fu">hist</span>(GBSG<span class="sc">$</span>age[(GBSG<span class="sc">$</span>age <span class="sc">&gt;=</span> <span class="fu">min</span>(age)) <span class="sc">&amp;</span> (GBSG<span class="sc">$</span>age <span class="sc">&lt;=</span> <span class="fu">max</span>(age))],</span>
+<span id="cb81-31"><a href="#cb81-31" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(age), <span class="at">to =</span> <span class="fu">max</span>(age), <span class="at">by =</span> <span class="fl">2.5</span>), <span class="at">main =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb81-32"><a href="#cb81-32" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(age), <span class="at">xaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;r&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb81-33"><a href="#cb81-33" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">&quot;gray88&quot;</span>)</span>
+<span id="cb81-34"><a href="#cb81-34" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> xaxis)</span>
+<span id="cb81-35"><a href="#cb81-35" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">20</span>), <span class="at">las =</span> <span class="dv">2</span>)</span>
+<span id="cb81-36"><a href="#cb81-36" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">text =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">line =</span> <span class="fl">2.3</span>)</span>
+<span id="cb81-37"><a href="#cb81-37" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">text =</span> <span class="st">&quot;Frequency&quot;</span>, <span class="at">line =</span> <span class="fl">2.8</span>)</span>
+<span id="cb81-38"><a href="#cb81-38" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb81-39"><a href="#cb81-39" tabindex="-1"></a></span>
+<span id="cb81-40"><a href="#cb81-40" tabindex="-1"></a><span class="fu">par</span>(<span class="at">fig =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.3</span>,<span class="dv">1</span>), <span class="at">new =</span> <span class="cn">TRUE</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb81-41"><a href="#cb81-41" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb81-42"><a href="#cb81-42" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">range</span>(age), <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="fl">0.8</span>), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>,</span>
+<span id="cb81-43"><a href="#cb81-43" tabindex="-1"></a>     <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb81-44"><a href="#cb81-44" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> xaxis, <span class="at">labels =</span> <span class="fu">rep</span>(<span class="st">&quot;&quot;</span>, <span class="at">times =</span> <span class="fu">length</span>(xaxis)))</span>
+<span id="cb81-45"><a href="#cb81-45" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.7</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="at">las =</span> <span class="dv">2</span>,</span>
+<span id="cb81-46"><a href="#cb81-46" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.7</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span>
+<span id="cb81-47"><a href="#cb81-47" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">text =</span> <span class="st">&quot;Log hazard relative to 50 years&quot;</span>, <span class="at">line =</span> <span class="fl">2.8</span>)</span>
+<span id="cb81-48"><a href="#cb81-48" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(fitg, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
+<span id="cb81-49"><a href="#cb81-49" tabindex="-1"></a>        <span class="fu">predict</span>(fitg, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;gray25&quot;</span>,</span>
+<span id="cb81-50"><a href="#cb81-50" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb81-51"><a href="#cb81-51" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(globalsf, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
+<span id="cb81-52"><a href="#cb81-52" tabindex="-1"></a>        <span class="fu">predict</span>(globalsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">5</span>,</span>
+<span id="cb81-53"><a href="#cb81-53" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb81-54"><a href="#cb81-54" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(pwsf, <span class="at">newdata =</span> newdat, <span class="at">type=</span><span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
+<span id="cb81-55"><a href="#cb81-55" tabindex="-1"></a>        <span class="fu">predict</span>(pwsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">2</span>,</span>
+<span id="cb81-56"><a href="#cb81-56" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;dodgerblue3&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb81-57"><a href="#cb81-57" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">predict</span>(jointsf, <span class="at">newdata =</span> newdat, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>) <span class="sc">-</span></span>
+<span id="cb81-58"><a href="#cb81-58" tabindex="-1"></a>        <span class="fu">predict</span>(jointsf, <span class="at">newdata =</span> newdatref, <span class="at">type =</span> <span class="st">&quot;lp&quot;</span>), <span class="at">lty =</span> <span class="dv">4</span>,</span>
+<span id="cb81-59"><a href="#cb81-59" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;firebrick3&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb81-60"><a href="#cb81-60" tabindex="-1"></a></span>
+<span id="cb81-61"><a href="#cb81-61" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="at">inset =</span> <span class="fl">0.02</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>),</span>
+<span id="cb81-62"><a href="#cb81-62" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;SHRINKAGE&quot;</span>,</span>
+<span id="cb81-63"><a href="#cb81-63" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Global&quot;</span>, <span class="st">&quot;Joint&quot;</span>, <span class="st">&quot;Parameterwise&quot;</span>),</span>
+<span id="cb81-64"><a href="#cb81-64" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>), <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb81-65"><a href="#cb81-65" tabindex="-1"></a>       <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">&quot;gray25&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;firebrick3&quot;</span>, <span class="st">&quot;dodgerblue3&quot;</span>))</span></code></pre></div>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABmFBMVEUAAAAAADoAAGYAOpAAZrYYdM0YdNUYdN4YjdUYjecYpe4iiyIii04ii3Uin5ois706AAA6ADo6AGY6Ojo6kNtAQEBBQWRBQYZBZGRBZKZBhsRHdM1HdNVHdN5Hjc1HjedHvO5HvPdOiyJOi05Ox95kQUFkQWRkZEFkpuJmAABmADpmZjpmtrZmtv9wdM1wdNVwpc1wpd5w0+5w0/91iyJ1i051x5p12v+GQUGGhmSGxP+QOgCQZgCQkGaQ2/+Wjc2WvN6W0+eW6f+anyKa7f+mZEGm4uKm4v+2ZgC2tma225C2/7a2//+6pc26vNW66ee6//+9syK97Zq9///EhkHE4qbE///NJibNJlHNJnfNUZzNd77VJibVnN/bkDrbtmbb///dvNXd/+7d///eJibevr7evv/ex07e///g4ODipmTixIbi///nUSbn3//udybu///3nFH3////tmb/vnf/xIb/097/2nX/25D/35z/4qb/6ef/7Zr//7b//73//77//8T//9v//97//9///+L//+7///f///+8f1a6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO2djZscN33H1z5faLKBOOCF4kBbU0JztDZtQ5s0Rw01SbNt4pYUl6MFthdIE+oWWrqxcyQ9koOY+bc7kuZNM5JmpJFmftJ8P89je3dnR5rZ+VgvP2k0qwwAwqzmPgAATEBQQBoICkgDQQFpICggDQQFpIGggDQQFJDGq6ArAPwQSFCfiYEFA0EBaSAoIA0EBaSBoIA0EBSQBoIC0kBQQBoICkgDQQFpphR0s/GZBVgEk5agMBTYAkEBaSAoIA0EBW0+enGz2Xzue1n28SvX+Qf3Pv9fH7+y4TyXZQ8+++rHr7DNfAP/k/Ngw797j32jToVvuyd2FW9smbYXD0Mj4MHmpfzve599VRb0ermNC1roWAkqdsre/8pfCXWz++wDIfI9JzMLIChocY+7x4zsCsr+4YL+7ldezRqC5p/xb97/3D8/K0wV//DdICjwSGlllikEZS+5oNfvX89qQUs/88+LL5ZS3n8JggK/FK3JTCVoVYJe/+jFlypBSz+5qPfZm49fea5OMCJBYWgMvP+s6CNlZc9oUwl6v2yDXs/uF6Xnvc//56YUlL3/6MXnWA/ppTq9spP0XDerfiAoUJCr2e4kCcleykpBWSHJBd189m+LTv37zzIH7+VvhKD3RDQAJSgIQO5Zu4p//1n2vhA0e/C573FBc5M/erEoX0uLeTHKeABBgV+K/nflYdZogz6o4qC8i/Rc3YtnG4qvc1tLKaMSdL2GoPQprXzQLUFFdLQS9P2v/FEVB70vNvCvs9eV5jEJCkOj4MGmLBO7gn70Yhlm4p9vKkFZSL4UkTdF7/M+0b1NVHFQCBoFfJBSBIs6cdDcu1pQpmupH+v6lz131k2qB0yrXnzZ17diSkEPDyEosGTSEvTwEIICOyYWFEUosAOCAtJAUEAaW0H3q9Wl29VLzk1jshJohAJLLAXd53buS0MZ50dXzMlK5ILCUGCDnaAXx9fyv7cNJ3eXXzcnK4E6HlhiJ+jZVVafN6Q8u3qtJ1kJCAossRT0aVa772tBt+oCVJsYxpKAHXaCiuZn3Qg9P5ILUMXS9zIQFNgxTlCpv6ROViYXFIYCC8ZV8duD075ku0BQMJxRnaR2Da9KtgsEjYzmMg2TMyrMJHw1J9sFgkZGc5mGyRkVqNc2Qc2JwdC4aC7TMDm2Q507MdR5ccxKUU2U3pQYxpLio7lMQ/bA9f5hRyZfYRnD8UTYmJC+2Vym4QG/ZfO6Js0AzCDoGoISwOhnR9BymQaxYsgDp5s33JhS0JOTDKOdEdJYpkHcrFnesjkFakFZ/ChvbeqinDbJNmGGQtDoaCzTINSUFrYJjFrQ7cHp2dUr0rQl12SbFEUoBI2LxjINRErQ86Ob2X51szkrxDnZDmiExkZjmQYibVAmKJunpA8jDU+2AwSNjeYyDUR68dsr50cHp5rZ8nbJdkAjNDaayzQQiYOeH60u3RbB+LHJdsGUOzCcyeOgEBTYoBRUzAnxk6wE78bnhkJQMBBtJ8lXsjLcUBShYDDqKt49vqRIrAkEBXZoStDiziLvYSYICuyYuJMEQYEdU/fiMdoZJb/6+nq9/tRP2YsXqg//70svdL7W/mQ02jhomCq+6McfHkLQmHhnnYv3629/8rtUBN0enO6uGG45ski2BQSNkMLEX3/7KSKCstl2+4PTbOc83w6CpsQbrHLPeecFoeB7eX3/ZSboX36Jv8i/kX/ywpSC3szOPv06/zM2WSUQdH7WEq3PpG/++ttfrl4zBd9bM1GfygV98uX8r3zjG0/l9uZvphKUjSSdf/V2OEHXMHRu1gpB274WNLXLXwtf33vyZe5m9s4nv/urv3hZVPiTtUHZPLvttRBVfAEEjQihHavFcxe//oJoeuZ/ixe5qexL763XEwrK5tLnPXn38SQImhC/+npRxb/XEJS9+EOmJvv7ndzdf5qyBPWYrBpEQmOi7CS9pylB+YtJq3iPyXbAYFJ0lPEkIWi7Dfqpn+afZ0XXaSpB8/r94HSrmHTXeIgCW5tptVJPau4TFFPuouIdHkx6Y/1UtxfP3ojCM//OZILuL93esVs+OoZKazOxUKndQxQYEDRC+FAnKye7cVCmZN4GffLlN558ecowE+vBd26ak1a3E2/UN9b1thdQx4NBaAP1TNDOtFBpfVCxmm1fshogKBiEsQTtLKAsrbC8v/za0WoltQJ616ivgKBgEKY26K7zEDlpjfodi5Nqbv3sDwmgEQqGoO/FN7vrJbKgl1rPpFEmqwORUDCEEQ9REE1R9Zw8Y2IiEorBJDCAEQ9REJ6qu0rmxJihEBQMQXfTnDr+LoWZxM3JLlV8ISjqeNCLpgTdrVr98wIpUM86+po1HvoFRSM0Kn7zsx/Ubz586+36zbtvd7/tEX0Vr3ZUeojCXqPxIEExoykmJEGbSLIGwNQG3bnfNtfToC2KUAgaDfQEZaXjzbykdJuzPExQ1PEzIqox9q9A/rSNEPTd/Hs/ElJ++Na/v3Vy8vYvf3hy8q//G/Aw9bcdCzMdF8GBoNQplTyRBD0xCvruCRPzB4Wg3/959ovv/3yWEvT8SPsIOetklWBOaGwwQX/zs7z0zN4VUn74Vv7mlz98e842qJdkDWC0Mx6YoLmOWSUlFzP/K21BUYTGQi1oISUEBVT4xb/8zzJLUNTxcZC3Onn7s9UGXYSgKEIj4Jc//JEoPeVefCnoj4JmrhL04njk2nYDBEU/PiJY+PPt8kUVBxWCZv89eRx0Vw5f7jXjmFbJasCUOzCIrqCN6R/hlr4p7+3MDXXMASyDrqCNR3wEeVZnExShoIe5SlABBAU9KNugRREasg1aAEGBGVUvvlyh3rn8HC4oGqHAzKxxUNTxoI/5BEWgKRruHnKesN3v4fP6bY9uGTY2UPXiWctzHzhQn2FafTzcffwnGVOK/zOcoQ4a0QjK++8jnik7WNAcGEodIWj28LE7VrsFFLRQM3CYqTAUgs7CYYHufYNC0A+eeV5U9/k/j772rcNPfKd898Ezf37r8PDGB8/wd9mb+ac3MvYu31G84Ts89nt5K+Eh+8rdx398i+932NxDhVrQYrmQwIF6CDojhy0h2++bNErQu7lib+b/ivq+fPfBM/lfbzJj32R/+Cc3RAlav2GycmGfyH77zRtsIzeeCVt+SQFKUNBL2QZ9Ii8H74iS9NEtXioW77hcxV/P803Zw098hznYeHOjUPzPHv/JB1+4wzbmH/P0qy8p8lYJymKgV7Kyu+TEsJAAX2EEM5rIU/TiixLuIauVq/Ylf8eLwvIv0VTlpj6fSW/YXo++9jdf/E5lr3Cy+pIib93SN2wFEdVAUnON+lplQ7Imijl3EJQ4d+vue95Y/MQ/PlMKWr6TBS3aCkLQ5ps8pRsf/P6Pv3Ynbxrw97/9Jm+DVl9S5G0ZB5WWvjEssQxBU6IWtDLx0a2GkqoSNBO9eOlNbvTj//BEdvcPvtkogu8+dscUHrATVFo8zNSHsoj6Y7STPLWgvJ34sKziq3eSoJV6ohZvvMk3f/FPb2Rv/s4X7kgbTPGoEcsvZjv1EnhDEyuBodSRS9BHtw5v1CUofycJyvvkrGDkfZ/6DZPw0a387UMWfaqKV/ZX+SVF3iMWsM22n3FcPEwGglJHboM+dqfyrXwnC8qjmqxwvVvGQfM3RSl5N3/Ju/uiCD5kCWT1Hl3sBJWWAD8/YlEo6Wlfwx+i0ACCAj0jBC0+clyjvgYTRoAejaDsIYeKhyjIVXzxTes16htUU5oGfh8sDc1jaHjTsvsYGrmTJD5yWKO+BoICM0pBy9uSOkOdUphJ2DquisekUGBGM5Ikis6ufFKgnouqeiSy5exnCAq02JWgrTXqt3wVZnOyQ8BgEtBh1wZ1SHYImDACdNj14h2SHQIEBTpmvquzAoICJepO0ldF2Rl86ZsMdyYBM0ZBdxMIinn1wIRC0G09oh586ZsMggIjxhLUR7L94P54oIdAJ0ncmYThTqCCiKAYjwdqCAiKIhTooSIoilCgBIIC0mgEPT9aHZyqJypZJjsU1PFAhWayyKXbu4PT4CuLSEBQoEA73Y5NtZtkJKkEggIF2gnLTNApxuIrMKUJKDCWoNvQj6GRwLRl0MXUBp1swjIWaQI69L34CScsYyFGoINCHDRDEQp0EBGUA0FBB00vXr9unW2yFqCOXzAbzaVXl6DbcS1Q5+IYodCFstnYCZqJJ3mpl/cegmt7QfmQCZA4ej3NbdCL4ykD9RwUocvDpKd9Cbpv1f2aWL69oMWtSShCF4ZZT+1Ikq4NKq3NxN5rntntUIIKQyHooujT07YXLz9EoZiVZ052MCJWv4Ghy6Ffz3EPUWCri33Dm6DVnR8Ou4IYGaDnuIcosLdyG9RpjfoSFKGLYpCeKkHPj66JR8gpnhgvr1HPKnxvnaRqPB6CLoEhtTtnzEMUDDPynMJMRRGKQFPyyHqu82JJi93iYVIVz99AUGBNU881R/9du8XDpE7SrmgHjHnKhwTm3C0CGz1tFw9rh5n8lqAMCJo4zdq9187MevGwdqDeu6AwNG3axWfvDrbzQaWHKGQQFNhgradO0DLONPlkkQzdpHTZOPipmw96cLq7onnK4SBGCYpQaIq0Ip/D9NSOxV/L9mzhhklvO87qW5NgaHIMDcy30S7ccPbp1/kfN1xLUIwmpYmrnoaFG1hPfjZBUYQmRSu0pPjGSfmwlw7qNigLxW+vTV/Fl0DQlOiNfJ6c2ArKYvF5T965Ez/6HmYYmgyj9KR1X3wDCJoIjdrdRU+6gsLQFOjV09T6FBAVFEVoCvTr2Y9qwnI9WWSGkSRMaUqF1riRYyr0SlAYmgS9U+b76vYCCApC0B+ZHyfo9E/5qMHE+uiRGp/jkqLzlI8KFKGRU9fuyr7RsJKzhM5TPiqwmG3UtEJL7c09Yc8OdJ7yUYMiNGL69bTyk9JTPiowYyRazJFPez2pPOVDpqrjYWhc9DQ+h3bcJYg85aMLitDo6NHTDXpx0BIUoXHRO+fTDW0b1FeyzkDQmDAOHLlU7SXaXvw4fBTHMDQaesY1vQs6Ir6kSMwVCBoLpZ4+q/YSTQmqnc0krVG/03akxgpahUJhKHmkvpH31C07SdLSN2ygaa82dHQJKioFCEqeTaP4VMQ9R6dvJ6i0eBgfqq/WwNEl60hxahhNIk5Tz5afLmH5LuPWqA8naAEEJU1wPUeuUZ+zk6r4UWvUK4GhdDHU7r70HLcEOO8yqSOmEDR5TI1PL61PwThBWRWvnFDiSVDMaSKLxznJRuxumutW8ZpuPARNG/e1ljQc6sI1mkA9r7m77nU7SZo1Gj0IWsxpgqH00A8cOVbth4d2gpZd887aTFKYSaipHnTyUYIiWE+TjWHgyElQg549Y/Fd+aRAPZvPrJlX4ktQcesHDKXDxhBacsKoZ89sJsWMemmN+q3mITSe2qAoQsmx8T+uadRT3wblbU33GcueBD1BEUoJvZ7+wkptTDPqne9I8tWLRxFKCf0NHf7C8l3ozqhnoAglg2c9eyr2Groz6hkoQqngVc/Dno5RE8Iz6ktQhM6O4X6jsHqSnlFfgiJ0ZgY/230QNnZm9jPqrZP1AJbBmRO/elpDu5MkwHjnjOiGjcL122ViEDTDrLu50Mfl5xV0zofJtsC9H/NhnPJphWXDs4Fa0DkfJtumvH3OX4pgGL5G3Q/t+u0ymk7STA+TVVEKCkOnRaOnddU+xs7MEAed52GyetivhVjTZGhqd4ew/Bg7M8NI0jwPk9UhOvIQdCL86TkadRt07ofJdhGxUBg6Cer7jebQUxtmmvthsh1QhE6GLjBvpefIir0mkjgo+6+MInQKvAwcjesXSUQhaP1UBQgamELPUXElj3pqe/HitriZnvLRpX62FwwNSa2n3Pa0ScOrnvrJIlxNYoKiCA1LUbsrZnzapOJVT62gf3LE7kciIygejxgejZ5zowvUXxyvrpETFIaGg6aephn1u9XBv5ERtCpCYWgQGo3P6rN5wkptDLd8nF2lMJup4ASVfDgatXv1mU1YfuRwuxHTPUnnR+Y16vNmQPDlFyvwAM9gKOYkU9Fz1Br1F8f5i90q6ArLLYoiFF15jygC81aDmiHtzGwnLCsWD1M/sjuYoJjV5BflwNEcY+467CYsK5wMuj6oAhShHpn5hrgh2E1YVixgu52yBGWIIhSGesDHuGZo7CYsd5cA30u9JP8PUehSFKEwdCyKcc3BdXvghmcDuwnLHUH36j5SoBK0cXsSBB2JqN3XLsPuo+4xssVuwnK7it9rokzBBGW/n2g1wdAxKPUcxpR2ZrYTlludpJ3Oz1Bt0Ea0HoK609Cz+MSi2z5x68ouDiqFmXI/tbclB2yDYsBzJCo9CcWVWowI1J9d1S/SGFBQDHiOYtPpus9zr9FQ1ILyQUzlyiKNNep34jsTx0Ex4DmGbuBzoJ6zhU00gXpKyy92QCXviCouP1RPUoLyB217SjYAmBjqRtn2tN1vRj2jWGG5Rf4/HpW8A52u0UBm1bPnSXM+kvWONDEUwaaB8NrdddAo2FENQN0GHbGuXTcx3/AidI1wvQUdPWnNWDLRFdT0tGOHZP1zAkMtqWr3uQ/EgSgWbmghDC0FhaE9yHoOLDnJ/K4xCio1Q6n8kFSRa/dhUc+Jh9uNRCloVhShMLSP+nY49i4+PSMWNKunNZH5MYmxkQPzw8eMKP2gcQpagCLUwKY9bhRLv10mAUGBgo3rsBE1dIuHlTjGQ6cRFIZq6M6oixZ1CSpmyu9XN11H5ScTFIZ2aek5tGMU/LicMA517g5OHZepn0DQItYUPqPYaJeevYJOeo+RLcbJIvvLrzsucDdFCdoI14MK68qdsp2Z4a5OBitBSQvaNJTwjzwdUlh+8D2aoY9qDD1tUNd5TRO1QZtTQ2n/zpNQNz4z6ndyDEYTZuL9eHbvseN0kakE5YYWLxdvaHW3UZaMnpHHQRm1ocTrqtA0w/K9epJudkpELygM5XRGNU1fJt4vktAIenZVd7+mbbKBkbry0fzqvim7RkO+G5OdmbmTZFiYYXiygTmBoZWeuaBRx+SV9IWZRicbmtzQZXeU7ANLUdEXqB+dbHBkQ5dG92ajxLAtQfdy01T3RPkJBRWGLnNEabiecdXrDSzboM21mTL1c0A6iQWHVWxLnDZS65lQr72NXS9eXt2OFacUBOVdg8UZWs/47Il6xqynbRxUXh80L2d1rdRpBeUsS9BG3LMnKB+znZm1oO2HKLQEnWKNei0NQ6O+JAMYrmf0GAXtlI/dNerplKDNyaFxFxp9FG1P8SZxP9MSdBGGDuu5J/MD2AnaV8WbEguNHA5N5gK1qPTs7xdNd1AhsRS0/aQ5UoK2DU3kEjVolJ5aQUnfwGGPnaCtMBMpQctV78q3KV0lQT3kbiIpPW0FbQfqSQnKkAY9U7pOtZ6Jd4ra2C6/2HiIAoOaoLKhCVHebJR6VKlD/BOWWyRpaBn31I4ZpVWtN0lO0AQNZUVnr54Q1DHZqUlt8l1jrrxaz5TtzJIUtDP5LuLLN6DfnrSeCQqqmHwX6xUcFJNPnfQE5U21jqHxKVoXngpBozwjJxIUNAlDjXV74s1OiRQFLRuizU/iuqIi6LnITlGbNAUVffl1pA1REfXUBZUWpWeygmY8HhpluMms5+JIV9A4Q/ab8iY46ClIWdD4nv63rhYIkfVcVrNTImlBeV+p/SHdS63utx+WzHFI85O+oO1qnujF1obkiR7vVCQtKENRKBG85JqqHaQvqLIhSkvR5k2aoEX6gqp783QEzfXs9Nlp/QealSUIWj8ZmRzFHPmmoAvvFLVZhKBZZ3CeBJtKz+ankFNiMYIyRec+jCbFZBB0i3pYhqCFosqeyBwFVt4r4hGw5jGg1FSyFEH1ik7e4GvNVEKb08hyBC3j9opSdEJBuisrQU4jSxKUoZkFPI0kIqCEoKcNowTda5+lRFZQ3Yj3JPlWXXaUmoMZI2h7HRxlsgQ5kTook9CwE21OK0YI2llJTJksQcwPrvEuz7oKKJ0EST9tRgjaWYtRmSxR5GdbNvFbwq3XhycnKDHdGSNoezVbZbJk4T0WzTZfQhUBJQjqzghBO+uBz/wQBWtOSozfsi1Rq+9vNvpiGgzFr6Duic2Dk6A978UbgoOrcbLcKr5gXYWdBo6Kt4Vtv6/mJ2GU3QdL7SQ18TVtQ4yvF4J6OTKwyDCTAi6We5NRtDa1Q6nAnSUG6tUUfZphFXSxtfou+kOhGDXUuYtxqNNMQ9DyPrasOfH9pFpvbr1Ga3MCljZZZBjrCl46NlUsmwLlF+Y+1NSBoHo2ZuY+vGUAQQFpICggDQQFpIGggDQQFJAGggLSQFBAGggKSANBAWlCCQqAH8IIqtE2wn2jPOgkTxiC0soYJ+wxbU+HQHHfKA86yROGoLQyxgl7TNvTIVDcN8qDTvKEISitjHHCHtP2dAgU943yoJM8YQhKK2OcsMe0PR0CxX2jPOgkTxiC0soYJ+wxbQCCA0EBaSAoIA0EBaSBoIA0EBSQBoIC0kBQQJqGoOdHK+WytBaJAeAHlaB85c/VtTGCjtgXgBr9PUmjHIWgwA+mm+aYospHJNgkC+gxtFKlgFbQfX6kN7OL44PTcckCeqz+wwSta6cWNO8lrYSZ6scgWSQL6BG9oOdHmmcjOCQL6BG9oD6TTZyYmnMVCQi6zSv4/YhAE62TDEhM17oipoNWC7rlDdDzI+dwPa2TDEhM17oipoPWtEFv8n8de0gZBCV5rStiOmiloOIpnLoHxdolmzgxXeuKmA5aXcXvVqwIPbuKkaQ+YrrWFTEdtKaTdHZ1pX0OJ9/IW6f79J7Vactc13pU9CABQU3s8x4U7z+l9bRjHT0qzCXomHzTFlQ0UPPmaUrPizfQczUhaFjUgl4ci+JB1Uk6e7ooM8+usoaquiNF6yRHAUFnRRMHNXTf95dfO+IT8YSp6lAUrZMcBQSdFU0c1NB937Fy9eL4StH8lBqh1Mf41IxqZULQsBgD9Up2l4qCUyGoKjH6jFJwxLUe0xNftqCsfNQiGp15AzSZKn42QWfaN35Bs/1KX4QKI3M7k+kkQVCbnSdGU8Wv9L14Uf/vEwozQVCbnSfGIVC/OzgVwdBUAvUQ1GbniXGZsMxuV+Ld/F0aQ50Q1GbnidEImlfyB6fbhUxYhqA2O0+MppN06XZekRvDoUOTjQAIarPzxGjng7KW5kLmgwYUNNhEk2ULyjrqTNCFzKgPKOiYrWOOedQJe/xpx2MsQbduqzZkENTH1jHHPOqEPf604zG1QXeGcP3gZCMgQUHDtS2mRt+L18+oz8rbPhOZUZ+goMats81wccElDsrMZIIiUA9Bg+MkKI+SZhjqDLs12DHHL6hxLD5jg53fyAXFZJGwW4Mdc/yCFuiiTGdP32ZtUEy3C7s12DEnI6im+mZVO1+7KZkZ9WOuZritwY45HUHVpWMZIcWM+rBbgx1zOoIq25e8ZkcVH37rmFCmcWsygqpXt9sVv9BNdJIi3Rq/oGUvXj/SuUWYKd6t8QvazxaB+ni3LkZQzKiPc2v8glaBen2sfnCyEUBTIwjK0cxm4vOYMJtprAo0t8Yv6MWxMHOH+aBUJVu2oOdfFS1LzKgfqQLNrfELWpagmFE/UgWaW+MXtAge7dyfN0frJHugqdF8gpqZ+uIoXmVFP15TfvLVbfkNyXRm1I/6UWlqNJ+g5q3TXND64ihembk4zqXcrWitUT/qR6WpEQQVF0fxykw1BE9pqBOCWmwNOYfF/5VVvMoGLH2Tl5yUJotAUIuts80RdLqyildDlr7ZXn6d0nS7Uf/raWoEQcWVVbwasPQNexIypRn1VK8Xya3xC9q79M2+7CNRmVFP9XqR3Bq/oH1L34gnyUdUxRu3EtUIgoorq3jVt/TNTkRBp+0khWtGEtUIgorrrniVmZe+Kb31HWaaqydDVKM4T9jhuvdYoXhlpn5It+dAfYrXi+TW+AUVZaOG4qY5JqbfGfUpXi+SW+MX1PikOctkLfaZ6UclqlGcJzzSG5NJUifJeSKoIrHGpyTj5UQ1ivOEx2ljNEl1T5LnCcvLu14kt8YvqM9kpU/n+tmMW4lqFOcJ+5SoZRIEXcrWyAUd30PKICjprSEzHoONoMZAU4XtjPrlXS+SW4keln9BrQP1NH8Yqtcr2Faih+VdUPuhTpo/DNXrFWwr0cPyLqj9ZBGaPwzV6xVsK9HD8i+o9XQ7mj8M1esVbCvRw/IuqP2M+lF9PJA6gwWtdzGOJFGaUQ9SZUSg3ljFA+CHEYIaOklqxpSrc+0b5UEnecLWaZvCTJ6yILBvlAed5Anbp20I1PvKYv59ozzoJE/YIW39jHpvWcy+b5QHneQJT9DxpnrqJDPGCXtM29MhUNw3yoNO8oQhKK2MccIe0/Z0CBT3jfKgkzxhCEorY5ywx7Q9HQLFfaM86CRPGMPngDQQFJAGggLSQFBAGggKSANBAWkgKCANBAWkgaCANBAUkAaCAtJAUEAaCApIE1LQ6uYl/YKNvfuKBSUs7iEViKflOeRb7eyQcb2LfcbVvi4nfHa12MPlhMud7TPeF/ew33TIuN63J9+AgrJ75/ntn9b3gTb2FetE2LJfMccc8q13dsi42sUh42pfh3z3+fGeH11xO+FqZ7df2j3jct+efMMJyh/rfXF8xeFO+npftyeP8Ofeu+Rb7+yScbmLS8ZVdvb5iuzy/9Iu+VY7uz7jhe3q+EuL5T968g3cBmWS2a9FUu+b7azPmuV18I3cMcd8xc4uGZe7uGRcZWefb134OuRbl19Ov7R4AqHjLy2eXtiTb2BBd3m5b1rNqW/fbPuZvIEyZGHyBnmGrBnplm+xs0vG5S4uGVfZ2ee7v/zakXO+1c5Ov3S+F8vN8QrzffvyDSronudsWg+vb9/zIy6L1e/GKhzmmNK4BYUAAAJsSURBVFO+5c4OGVe7OGRc7euQ727Fa9krTidc7ezySxdtMccrLPbtyzd4FX9w6nb4Yl/xyu7/ZvnMe6d8y51dMi53cT1hx4bo7tJt93yrnR0yzmQ1rYugxvf1+YaOg+ZH4VrF12cg2jgD4dm5VvHVzg4ZV7s4n3CVnVW+ou3nmG+1s0PGWflTuZ1w/TOb8g0tKPvdHDtJjZ/NJgKyKyNsTn2VOrRnnXG1i/sJO8WahBiO+VY7O2Rc1tJunaRi3758wwkqjnrvFP2o9q1eWGa+dQ8zFcWvfcZznbB4BptbvvXOTr90UYQ4/dLFvn35BixBK0kcwrjVvvysbZvuRfXhGD4WOztkXO3icsLlvg757kb80PXOLr90mZnTCEHx/Z58Q1bx27KutF2wsbnvtq5wbXbn7RuHfOudHTKe64T3ZaDG5YSrnR0yrmp1h4yrfc35YrIIIA0EBaSBoIA0EBSQBoIC0kBQQBoICkgDQQFpICggDQQFpIGggDQQFJAGggLSQNBJ2NrfjgY4EHQKzp7+Y7e7zgEEnYLd5b+3v7sJMCDoBFwcX+GrUGR8du6lv2Zze3cud6EvEAg6AezuBnF/L1urYL8q3oqVNYARCDoBYiWIao2Y7aXbxYIHaJj2AkHDI0rKbbVAV16gijvGHG67XxwQNDz1zfa7SlD5/nugBYIGp+gfscUwWyUo6AeCBqeUMe8XFUtwsDYoys5hQNDglGsQsaao1ItnvaWZj40+EDQ0dU+I2bldrS7/HavoWcMUnfh+IOj0ILpkAQSdEl6aSsu6gR4g6KTsEVuyBIIC0kBQQBoICkgDQQFp/h/VkxPXfFd47gAAAABJRU5ErkJggg==" style="display:block; margin: auto" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off()</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a><span class="co"># dev.off()</span></span></code></pre></div>
 </div>
 
 
